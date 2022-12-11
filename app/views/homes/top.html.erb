@@ -1,17 +1,20 @@
-<div class='container'>
-  <div class='row'>
-    <div class='mx-auto col-11 col-sm-10 col-lg-8 col-xl-6 p-2'>
-      <div class="btn-wrapper col-10 mx-auto">
-        <div class="row">
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
-        </div>
-        <div class="row">
-          <%= link_to 'ログイン',new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
-        </div>
-        <div class="row">
-          <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success btn-sm btn-block sign_up" %>
-        </div>
-      </div>
+<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary", method: :post %>
+<%= link_to 'ログイン',new_user_session_path, class: "btn btn-warning" %>
+<%= link_to '新規登録',new_user_registration_path, class: "btn btn-success" %>
+
+
+<div id="sample1" class="carousel slide" data-ride="carousel" data-interval="3000" data-wrap="true" data-pause="false" style = "width: 500px">
+
+  <!-- スライド -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="<%= asset_path('CV_2.jpeg') %>" alt="写真1">
+    </div>
+    <div class="carousel-item">
+      <img src="<%= asset_path('CV_1.jpeg') %>" alt="写真2">
+    </div>
+    <div class="carousel-item">
+      <img src="<%= asset_path('CV_3.jpeg') %>" alt="写真3">
     </div>
   </div>
 </div>
