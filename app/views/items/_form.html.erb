@@ -1,0 +1,16 @@
+<%= form_with model:item do |f| %>
+    <h4>画像</h4>
+      <%= f.file_field :image, accept: "image/*" %>
+    <h4>商品名</h4>
+      <%= f.text_field :name %>
+    <h4>ショップ名</h4>
+      <%= f.text_field :shop_name %>
+    <h4>紹介</h4>
+      <%= f.text_area :introduction %>
+
+      <% if f.object.new_record? %>
+        <%= f.submit '新規投稿' %>
+      <% else %>
+        <%= f.submit '更新する' %>
+      <% end %>
+<% end %>
