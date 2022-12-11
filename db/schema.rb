@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema.define(version: 2022_12_10_100430) do
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_100430) do
 
   create_table "items", force: :cascade do |t|
     t.string "name", null: false
+    t.string "shop_name", null: false
     t.text "introduction", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

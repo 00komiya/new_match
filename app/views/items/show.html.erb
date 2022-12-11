@@ -1,2 +1,13 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<h1>詳細ページ</h1>
+
+<%= l @item.created_at %>
+<%= image_tag @item.get_image, size:"50x50" %>
+<%= @item.name %>
+<%= @item.shop_name %>
+<%= @item.introduction %>
+<%= @item.user.name %>
+
+<% if @item.user_id == current_user.id %>
+<%= link_to "編集", edit_item_path(@item), class: "btn btn-success"%>
+<%= link_to "削除", @item, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
+<% end %>
