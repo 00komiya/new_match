@@ -14,6 +14,7 @@
     <%= item.name %>
     <%= item.shop_name %>
     <%= render 'likes/like', item: item %>
+    コメント件数：<%= item.item_comments.count %>
     <%= link_to "詳細はコチラ", item_path(item) %><br>
   <% end %>
 </div>

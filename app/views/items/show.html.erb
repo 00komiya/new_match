@@ -11,3 +11,6 @@
 <%= link_to "編集", edit_item_path(@item), class: "btn btn-success"%>
 <%= link_to "削除", @item, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
 <% end %>
+
+<%= render 'item_comments/form', item: @item, item_comment: @item_comment %>
+<%= render 'item_comments/comment', item: @item %>

@@ -1,0 +1,12 @@
+<% item.item_comments.each do |item_comment| %>
+  <%#= link_to user_path(item_comment.user) do %>
+    <%#= image_tag item_comment.user.get_profile_image, size: "100x100" %><br>
+    <%= item_comment.user.name %>
+  <%# end %>
+  <%= item_comment.comment %>
+  <% if item_comment.user == current_user %>
+    <div class="comment-delete">
+      <%= link_to "Destroy", item_item_comment_path(item_comment.item, item_comment), method: :delete, class: "btn btn-danger" %>
+    </div>
+  <% end %>
+<% end %>
