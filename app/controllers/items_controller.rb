@@ -15,11 +15,11 @@ class ItemsController < ApplicationController
 
   def index
     if params[:latest]
-      @items = Item.latest
+      @items = Item.latest.page(params[:page])
     elsif params[:old]
-      @items = Item.old
+      @items = Item.old.page(params[:page])
     else
-      @items = Item.order("created_at DESC").page(params[:page]).per(5)
+      @items = Item.order("created_at DESC").page(params[:page])
     end
   end
 
