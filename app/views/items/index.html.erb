@@ -13,6 +13,9 @@
     <%= image_tag item.get_image, size:'50x50' %>
     <%= item.name %>
     <%= item.shop_name %>
+    <div id="like_buttons_<%= item.id %>">
+    <%= render 'likes/like', item: item %></div>
+    コメント件数：<%= item.item_comments.count %>
     <%= link_to "詳細はコチラ", item_path(item) %><br>
   <% end %>
 </div>
