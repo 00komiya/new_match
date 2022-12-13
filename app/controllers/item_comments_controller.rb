@@ -4,12 +4,15 @@ class ItemCommentsController < ApplicationController
     @comment = current_user.item_comments.new(item_comment_params)
     @comment.item_id = @item.id
     @comment.save
-    redirect_to request.referer
+    @item_comment = ItemComment.new
+    # redirect_to request.referer 非同期処理
   end
 
   def destroy
     ItemComment.find_by(id: params[:id], item_id: params[:item_id]).destroy
-    redirect_to request.referer
+    @item = Item.find(params[:item_id])
+    @item_comment = ItemComment.new
+    # redirect_to request.referer #非同期処理
   end
 
   private

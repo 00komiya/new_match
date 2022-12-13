@@ -12,5 +12,7 @@
 <%= link_to "削除", @item, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
 <% end %>
 
-<%= render 'item_comments/form', item: @item, item_comment: @item_comment %>
-<%= render 'item_comments/comment', item: @item %>
+<div id="comments_index">
+  <%= render 'item_comments/index', item: @item %></div>
+<div id="comments_form">
+<%= render 'item_comments/form', item: @item, item_comment: @item_comment %></div>
