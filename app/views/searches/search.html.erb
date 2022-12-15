@@ -1,15 +1,7 @@
-<% if @model == 'items' %>
-  <h3>【Itemsモデルの検索結果】検索ワード：<%= @content %></h3>
-  <%#= render 'users/index', users: @records %>
-  <% @items.each do |item| %>
-    <%= item.user.name %>
-    <%= item.name %>
-    <%= item.introduction %>
-  <% end %>
-<% else @model == 'users' %>
-  <h3>【Usersモデルの検索結果】検索ワード：<%= @content %></h3>
-    <%#= render 'posts/index', posts: @records %>
-    <% @users.each do |user| %>
-      <%= user.name %>
-    <% end %>
+<% if @model == 'item' %>
+  <h3>Items search for "<%= @content %>"</h3>
+  <%= render 'items/index', items: @records %>
+<% else @model == 'user' %>
+  <h3>Users search for "<%= @content %>"</h3>
+  <%= render 'users/index', users: @records %>
 <% end %>

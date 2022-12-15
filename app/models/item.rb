@@ -19,4 +19,11 @@ class Item < ApplicationRecord
     likes.exists?(user_id: user.id)
   end
 
+  def self.search_for(content, method)
+    if method == "perfect"
+      Item.where("name = ? OR introduction = ?", content, content)
+    else
+      Item.where('name LIKE ? OR introduction LIKE ? ', '%'+content+'%','%'+content+'%')
+    end
+  end
 end
