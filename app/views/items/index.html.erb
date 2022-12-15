@@ -1,21 +1,4 @@
 <h1>投稿一覧</h1>
 <%= link_to "新規投稿", new_item_path %>
 
-<div>
-  <%= paginate @items %>
-  <%= link_to '新しい順', items_path(latest: "true") %>|
-  <%= link_to '古い順', items_path(old: "true") %>
-</div>
-
-<div>
-  <% @items.each do |item| %>
-    <%= l item.created_at %>
-    <%= image_tag item.get_image, size:'50x50' %>
-    <%= item.name %>
-    <%= item.shop_name %>
-    <div id="like_buttons_<%= item.id %>">
-    <%= render 'likes/like', item: item %></div>
-    コメント件数：<%= item.item_comments.count %>
-    <%= link_to "詳細はコチラ", item_path(item) %><br>
-  <% end %>
-</div>
+<%= render 'items/index', items: @items %>
