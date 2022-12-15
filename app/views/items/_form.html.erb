@@ -7,6 +7,8 @@
       <%= f.text_field :shop_name %>
     <h4>紹介</h4>
       <%= f.text_area :introduction %>
+    <h4>タグ</h4>
+    <%= f.text_field :tag_name %>
 
       <% if f.object.new_record? %>
         <%= f.submit '新規投稿' %>
