@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row p-3">
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded bg-warning">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
       <div class="text-center pt-2">
         <h3 class="text-black border border-white">プロフィール詳細編集</h3>
       </div>
@@ -8,33 +8,33 @@
     <%= form_with model:@user, local:true do |f| %>
       <%= render 'layouts/errors', obj: @user %>
         <div class="form-group">
-          <%= f.label "名前" %>
+          <%= f.label :name, "名前(ニックネーム)" %>
           <%= f.text_field :name, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label "プロフィール写真" %>
-          <%= f.file_field :profile_image, class: "form-control-file user_image", accept: 'image/*' %>
+          <%= f.label :profile_image, "プロフィール写真" %>
+          <%= f.file_field :profile_image, class: "form-control-file", accept: 'image/*' %>
         </div>
         <div class="row">
         <div class="col-6 form-group">
-          <%= f.label "年代", class:"control-label" %>
-          <%= f.select :age, [["",""], ["10代","10"], ["20代","20"], ["30代","30"], ["40代","40"], ["50代","50"], ["60代以上","60"] ], {}, class: "form-control" %>
+          <%= f.label :age, "年代", class: "control-label" %>
+          <%= f.select :age, [["",""], ["10代"], ["20代"], ["30代"], ["40代"], ["50代"], ["60代"], ["70代"], ["80代以上"] ], {}, class: "form-control" %>
         </div>
         <div class="col-6 form-group">
-          <%= f.label "性別", class:'control-label' %>
-          <%= f.select :sex, [["",""], ["女性","女性"], ["男性","男性"]], {}, class: "form-control" %>
+          <%= f.label :sex, "性別", class:'control-label' %>
+          <%= f.select :sex, [["",""], ["女性"], ["男性"]], {}, class: "form-control" %>
         </div>
         </div>
         <div class="form-group">
-          <%= f.label "地域（県や市など）" %>
+          <%= f.label :address, "地域（県や市など）" %>
           <%= f.text_field :address, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label "自己紹介（255文字未満）" %>
+          <%= f.label :introduction, "自己紹介（250文字未満）" %>
           <%= f.text_area :introduction, class: "form-control" %>
         </div>
         <div class="form-group">
-          <%= f.label "メールアドレス" %>
+          <%= f.label :email, "メールアドレス" %>
           <%= f.email_field :email, class: "form-control" %>
         </div>
         <div class="form-group text-right">

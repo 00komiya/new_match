@@ -5,15 +5,18 @@
   <%= link_to '古い順', items_path(old: "true") %>
 </div>
 
-<div>
   <% items.each do |item| %>
-    <%= l item.created_at %>
-    <%= image_tag item.get_image, size:'50x50' %>
-    <%= item.name %>
-    <%= item.shop_name %>
-    <div id="like_buttons_<%= item.id %>">
-    <%= render 'likes/like', item: item %></div>
-    コメント件数：<%= item.item_comments.count %>
-    <%= link_to "詳細はコチラ", item_path(item) %><br>
+    <div class="card">
+      <div class="card-image">
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.get_image, size:'50x50' %>
+        <% end %>
+      </div>
+      <%= item.shop_name %>
+      <div id="like_buttons_<%= item.id %>">
+        <%= render 'likes/like', item: item %></div>
+        コメント件数：<%= item.item_comments.count %>
+        <%= l item.created_at %>
+        <%= link_to "詳細はコチラ", item_path(item) %>
+    </div>
   <% end %>
-</div>
