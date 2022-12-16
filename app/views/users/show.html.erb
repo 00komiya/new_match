@@ -1,9 +1,12 @@
-<%= image_tag @user.get_profile_image, size:'100x100' %>
-  <%= @user.name %>
-  <%= @user.introduction %>
-    <% if @user == current_user %>
-      <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
-        <i class="fas fa-user-cog"></i>
-      <% end %>
-    <% else %>
-    <% end %>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active">プロフィール</a>
+      <%= render 'users/info', user: @user %>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">投稿一覧</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link">いいね一覧</a>
+  </li>
+</ul>

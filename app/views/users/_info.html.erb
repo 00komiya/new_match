@@ -1,0 +1,26 @@
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+        <h3 class="panel-title"><%= @user.name %></h3>
+      </div>
+      <div class="panel-body al-c">
+        <%= image_tag @user.get_profile_image, size:'100x100' %>
+      </div>
+<div class="row">
+  <aside class="col-md-8">
+<table class='table'>
+  <tr>
+    <th>名前</th>
+      <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>自己紹介</th>
+      <td><%= @user.introduction %></td>
+  </tr>
+  </table>
+    <% if @user == current_user %>
+      <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block" do %>
+        <i class="fas fa-user-cog"></i>
+      <% end %>
+    <% else %>
+    <% end %>
