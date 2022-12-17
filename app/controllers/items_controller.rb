@@ -6,16 +6,17 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    tag_list = params[:item][:tag_name].split(',')
+    tag_list = params[:item][:tag.name].split(',')
     if @item.save
       @item.save_tags(tag_list)
       redirect_to items_path
-     else
+    else
       render :new
     end
   end
 
   def index
+    @tags = Tag.all
     if params[:latest]
       @items = Item.latest.page(params[:page])
     elsif params[:old]
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_comment = ItemComment.new
+    #byebug
   end
 
   def edit

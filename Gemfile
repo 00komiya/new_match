@@ -68,3 +68,4 @@ gem "pry-byebug"
 gem 'jquery-rails'
 
 gem 'rails-i18n'
+gem 'net-smtp'

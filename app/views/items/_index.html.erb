@@ -1,12 +1,14 @@
 
 <div>
-  <%= paginate items %>
-  <%= link_to '新しい順', items_path(latest: "true") %>|
-  <%= link_to '古い順', items_path(old: "true") %>
+  <% if items.present? %>
+    <%= paginate items %>
+    <%= link_to '新しい順', items_path(latest: "true") %>|
+    <%= link_to '古い順', items_path(old: "true") %>
+  <% end %>
 </div>
 
   <% items.each do |item| %>
-    <div class="card">
+    <div class="card m-2">
       <div class="card-image">
         <%= link_to item_path(item) do %>
           <%= image_tag item.get_image, size:'50x50' %>
