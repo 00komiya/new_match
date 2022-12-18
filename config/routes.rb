@@ -20,6 +20,10 @@ Rails.application.routes.draw do
     end
   end
 
+  # 会員の退会確認画面,退会処理
+    get "/users/quit" => "users#quit"
+    patch "/users/out" => "users#out"
+
   resources :items do
     resource :likes, only: [:create, :destroy]
    resources :item_comments, only: [:create, :destroy]

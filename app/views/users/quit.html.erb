@@ -1,0 +1,15 @@
+<div class = "container">
+  <div class="row" >
+    <div class="col text-center mt-5 pt-5">
+      <h1>本当に退会しますか？</h1><br>
+
+
+      <p>退会すると、会員登録情報や</p>
+      <p>これまでに投稿した編集はできなくなります。</p>
+      <p>退会する場合は、　「退会する」　をクリックしてください。</p>
+
+      <%= link_to "退会しない", user_path, class: 'btn btn-primary' %>
+      <%= link_to "退会する", users_out_path, method: :patch, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>
