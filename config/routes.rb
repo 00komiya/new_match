@@ -14,15 +14,15 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
+  # 会員の退会確認画面,退会処理
+  get "/users/quit" => "users#quit"
+  patch "/users/out" => "users#out"
+
   resources :users do
     member do
       get :likes
     end
   end
-
-  # 会員の退会確認画面,退会処理
-    get "/users/quit" => "users#quit"
-    patch "/users/out" => "users#out"
 
   resources :items do
     resource :likes, only: [:create, :destroy]
@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root :to => "homes#top"
     resources :items, only: [:index, :show, :destroy]
     resources :item_comments, only: [:destroy]
     resources :users, only: [:index, :show, :edit, :update]

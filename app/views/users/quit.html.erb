@@ -5,10 +5,10 @@
 
 
       <p>退会すると、会員登録情報や</p>
-      <p>これまでに投稿した編集はできなくなります。</p>
+      <p>これまでに投稿した投稿は削除されます。</p>
       <p>退会する場合は、　「退会する」　をクリックしてください。</p>
 
-      <%= link_to "退会しない", user_path, class: 'btn btn-primary' %>
+      <%= link_to "退会しない", user_path(@user), class: 'btn btn-primary' %>
       <%= link_to "退会する", users_out_path, method: :patch, class: 'btn btn-danger' %>
     </div>
   </div>

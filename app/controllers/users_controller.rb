@@ -8,7 +8,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    #@items = @user.items.page(params[:page])
     if params[:latest]
       @items = @user.items.latest.page(params[:page])
     elsif params[:old]
@@ -39,6 +38,12 @@ class UsersController < ApplicationController
 
   def quit
     @user = current_user
+  end
+
+  def out
+    current_user.destroy()
+    sign_out
+    redirect_to root_path
   end
 
   def likes
