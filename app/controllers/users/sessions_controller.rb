@@ -16,7 +16,7 @@ class Users::SessionsController < Devise::SessionsController
     return if !@user
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
       if @user.valid_password?(params[:user][:password])
-   ## 【処理内容3】
+    ## 【処理内容3】
     end
   end
 

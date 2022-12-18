@@ -33,10 +33,6 @@
           <%= f.label :introduction, "自己紹介（250文字未満）" %>
           <%= f.text_area :introduction, class: "form-control" %>
         </div>
-        <div class="form-group">
-          <%= f.label :email, "メールアドレス" %>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
         <div class="form-group text-right">
           <%= f.submit "更新する", class: "btn btn-info rounded-pill" %>
           <%= link_to "退会する", users_quit_path, class: 'btn btn-danger rounded-pill' %>
