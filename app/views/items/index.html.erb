@@ -9,6 +9,10 @@
   </div>
 </div>
 
+
+
 <% @tags.each do |tag| %>
+<%#= link_to item_item_tag_path(@item, tag.item_tags.find_by(item_id: @item.id)) do %>
 <%= tag.name %>
+<%# end %>
 <% end %>
