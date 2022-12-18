@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    tag_list = params[:item][:tag.name].split(',')
+    tag_list = params[:item][:tag_name].split(',')
     if @item.save
       @item.save_tags(tag_list)
       redirect_to items_path
@@ -17,12 +17,19 @@ class ItemsController < ApplicationController
 
   def index
     @tags = Tag.all
+    # tag_idに値が入っていたらtag_idで検索する
+    @items = Item.left_joins(:tags).all.distinct
+    if params[:tag_id].present?
+      @items = @items.where(tags: {id: params[:tag_id]})
+    end
+
+    # 検索結果からページネーションと並び替えを行う
     if params[:latest]
-      @items = Item.latest.page(params[:page])
+      @items = @items.latest.page(params[:page])
     elsif params[:old]
-      @items = Item.old.page(params[:page])
+      @items = @items.old.page(params[:page])
     else
-      @items = Item.order("created_at DESC").page(params[:page])
+      @items = @items.order("created_at DESC").page(params[:page])
     end
   end
 
@@ -42,9 +49,9 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    tag_list = params[:item][:tag.name].split(',')
+    tag_list = params[:item][:tag_name].split(',')
     if@item.update(item_params)
-      @item.update_tags(tag_list)
+      @item.save_tags(tag_list)
       redirect_to item_path(@item)
     else
       render :edit

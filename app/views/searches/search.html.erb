@@ -1,7 +1,15 @@
-<% if @model == 'item' || @model == 'tag' %>
-  <h3>Items search for "<%= @content %>"</h3>
-  <%= render 'items/index', items: @records %>
-<% else @model == 'user' %>
-  <h3>Users search for "<%= @content %>"</h3>
-  <%= render 'users/index', users: @records %>
-<% end %>
+<div class="container-fluid">
+  <div class="row p-3">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+      <div class="text-center pt-2">
+        <% if @model == 'item' || @model == 'tag' %>
+          <h3 class="text-black border border-white">検索ワード"<%= @content %>"</h3>
+      </div>
+      <%= render 'items/index', items: @records %>
+        <% else @model == 'user' %>
+          <h3 class="text-black border border-white">検索ワード "<%= @content %>"</h3>
+      </div>
+      <%= render 'users/index', users: @records %>
+        <% end %>
+  </div>
+</div>
