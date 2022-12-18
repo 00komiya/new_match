@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
   end
 
-  resources :users
+  resources :users do
+    member do
+      get :likes
+    end
+  end
 
   resources :items do
     resource :likes, only: [:create, :destroy]
