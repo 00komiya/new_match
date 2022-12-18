@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   resources :items do
     resource :likes, only: [:create, :destroy]
    resources :item_comments, only: [:create, :destroy]
+   resources :item_tags, only: [:destroy]
   end
 end

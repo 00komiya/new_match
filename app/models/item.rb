@@ -26,13 +26,13 @@ class Item < ApplicationRecord
     end
   end
 
-  def save_tags(savebook_tags)
+  def save_tags(saveitem_tags)
     # 現在のユーザーの持っているskillを引っ張ってきている
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
     # 今itemが持っているタグと今回保存されたものの差をすでにあるタグとする。古いタグは消す。
     old_tags = current_tags - saveitem_tags
     # 今回保存されたものと現在の差を新しいタグとする。新しいタグは保存
-    new_tags = savebook_tags - current_tags
+    new_tags = saveitem_tags - current_tags
 
     # Destroy old taggings:
     old_tags.each do |old_name|

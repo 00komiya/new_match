@@ -1,19 +1,20 @@
+<div class="container">
+<div class="row">
+
 <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "btn btn-secondary", method: :post %>
 <%= link_to 'ログイン',new_user_session_path, class: "btn btn-warning" %>
 <%= link_to '新規登録',new_user_registration_path, class: "btn btn-success" %>
 
-<div id="sample1" class="carousel slide" data-ride="carousel" data-interval="3000" data-wrap="true" data-pause="false" style = "width: 500px">
-
-  <!-- スライド -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="<%= asset_path('CV_2.jpeg') %>" alt="写真1">
+    <div class="col-md-2 pt-3 align-items-start justify-content-center">
     </div>
-    <div class="carousel-item">
-      <img src="<%= asset_path('CV_1.jpeg') %>" alt="写真2">
-    </div>
-    <div class="carousel-item">
-      <img src="<%= asset_path('CV_3.jpeg') %>" alt="写真3">
+    <div class="col-9 ml-3">
+      <div class="row-10 mb-5 top-image ">
+        <div class="col-10 p-2">
+          <div class="card" style="background-size: cover;">
+            <img src="<%= asset_path('top.jpeg') %>" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>

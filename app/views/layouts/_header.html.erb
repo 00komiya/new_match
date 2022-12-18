@@ -1,8 +1,8 @@
-<header>
+<header class="image_tag">
   <nav class="navbar navbar-expand-lg navbar-dark bg-info">
-    <div class="container">
+    <div class="container ">
       <%= link_to root_path do %>
-        <%= image_tag 'logo.jpg', size: "200x50" %>
+        <%= image_tag 'logo.jpg', size: "150x50" %>
       <% end %>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,6 +10,9 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
+          <li class="my-auto pr-5 mr-5 text-light">
+            ようこそ、<%= current_user.name %>さん！
+          </li>
           <li>
             <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> マイページ

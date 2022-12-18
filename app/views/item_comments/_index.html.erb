@@ -1,8 +1,8 @@
 <% item.item_comments.each do |item_comment| %>
-  <%#= link_to user_path(item_comment.user) do %>
-    <%#= image_tag item_comment.user.get_profile_image, size: "100x100" %><br>
+  <%= link_to user_path(item_comment.user) do %>
+    <%= image_tag item_comment.user.get_profile_image, size: "50x50" %>
     <%= item_comment.user.name %>
-  <%# end %>
+  <% end %>
   <%= item_comment.comment %>
   <% if item_comment.user == current_user %>
     <div class="comment-delete">

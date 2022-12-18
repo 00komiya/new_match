@@ -66,3 +66,6 @@ gem "devise"
 gem "kaminari", "~> 1.2.1"
 gem "pry-byebug"
 gem 'jquery-rails'
+
+gem 'rails-i18n'
+gem 'net-smtp'

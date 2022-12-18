@@ -8,7 +8,12 @@ class SearchesController < ApplicationController
     elsif @model == 'user'
       @records = User.search_for(@content, @method)
     elsif @model == 'tag'
-      @records = Tag.search_items_for(@content, @method).page(params[:page])
+      tag = Tag.find_by(name: @content)
+      if tag.present?
+        @records = tag.items.page(params[:page])
+      else
+        @records = []
+      end
     end
   end
 end

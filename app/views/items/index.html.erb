@@ -1,4 +1,18 @@
-<h1>投稿一覧</h1>
-<%= link_to "新規投稿", new_item_path %>
+<div class='container-fluid'>
+  <div class="row p-3">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+      <div class="text-center pt-2">
+        <h3 class="text-black border border-white">投稿一覧</h3>
+      </div>
+      <%= render 'index', items: @items %>
+    </div>
+  </div>
+</div>
 
-<%= render 'items/index', items: @items %>
+
+
+<% @tags.each do |tag| %>
+<%#= link_to item_item_tag_path(@item, tag.item_tags.find_by(item_id: @item.id)) do %>
+<%= tag.name %>
+<%# end %>
+<% end %>

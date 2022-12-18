@@ -1,2 +1,16 @@
 <h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+<div id="sample1" class="carousel slide" data-ride="carousel" data-interval="3000" data-wrap="true" data-pause="false" style = "width: 500px">
+
+  <!-- スライド -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="<%= asset_path('CV_2.jpeg') %>" alt="写真1">
+    </div>
+    <div class="carousel-item">
+      <img src="<%= asset_path('CV_1.jpeg') %>" alt="写真2">
+    </div>
+    <div class="carousel-item">
+      <img src="<%= asset_path('CV_3.jpeg') %>" alt="写真3">
+    </div>
+  </div>
+</div>

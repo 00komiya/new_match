@@ -1,18 +1,39 @@
 <%= form_with model:item do |f| %>
-    <h4>画像</h4>
-      <%= f.file_field :image, accept: "image/*" %>
-    <h4>商品名</h4>
-      <%= f.text_field :name %>
-    <h4>ショップ名</h4>
-      <%= f.text_field :shop_name %>
-    <h4>紹介</h4>
-      <%= f.text_area :introduction %>
-    <h4>タグ</h4>
-    <%= f.text_field :tag_name %>
-
-      <% if f.object.new_record? %>
-        <%= f.submit '新規投稿' %>
-      <% else %>
-        <%= f.submit '更新する' %>
-      <% end %>
+  <div class="input-group mb-3 mt-4">
+    <div class="input-group-prepend">
+      <span class="input-group-text" aria-hidden="true"><i class="fas fa-camera"></i></span>
+      <%= f.file_field :image, accept: "image/*", class: "w-100" %>
+    </div>
+  </div>
+  <div class="input-group mb-3 mt-4">
+    <div class="input-group-prepend">
+      <span class="input-group-text" aria-hidden="true"><i class="fas fa-barcode"></i></span>
+    </div>
+      <%= f.text_field :name, class: "form-control", placeholder:" 商品名" %>
+  </div>
+  <div class="input-group mb-3 mt-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" aria-hidden="true"><i class="fas fa-store"></i></span>
+      </div>
+        <%= f.text_field :shop_name, class:"form-control", placeholder:"コンビニ名" %>
+  </div>
+  <div class="input-group mb-3 mt-4">
+      <div class="input-group-prepend">
+        <span class="input-group-text" aria-hidden="true"><i class="fas fa-pencil-alt"></i></span>
+      </div>
+        <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"商品紹介：情報や感想をコチラへ" %>
+  </div>
+  <div class="input-group mb-3 mt-4">
+    <div class="input-group-prepend">
+      <span class="input-group-text" aria-hidden="true"><i class="fas fa-tag"></i></span>
+    </div>
+      <%= f.text_field :tag.name, class:"form-control", placeholder:" ,で複数タグ付け" %>
+  </div>
+  <div class="form-group text-right">
+    <% if f.object.new_record? %>
+      <%= f.submit '投稿する', class: "btn btn-primary rounded-pill" %>
+    <% else %>
+      <%= f.submit '更新する', class: "btn btn-primary rounded-pill" %>
+    <% end %>
+  </div>
 <% end %>

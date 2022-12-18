@@ -1,0 +1,27 @@
+<div class="text-center pt-2">
+  <%= image_tag user.get_profile_image, size:'150x70' %>
+</div>
+  <table class="table" style="background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);">
+    <tr>
+      <th>名前</th>
+        <td><%= user.name %></td>
+    </tr>
+    <tr>
+      <th>年代 / 性別</th>
+        <td><%= user.age %> <%= user.sex %></td>
+    </tr>
+    <tr>
+      <th>地域</th>
+        <td><%= user.address %></td>
+    </tr>
+    <tr>
+      <th>自己紹介</th>
+        <td><%= simple_format user.introduction %></td>
+    </tr>
+  </table>
+  <% if user == current_user %>
+    <%= link_to edit_user_path(user), class: "btn btn-warning btn-block" do %>
+      <i class="fas fa-user-cog"></i>
+    <% end %>
+  <% else %>
+  <% end %>
