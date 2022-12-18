@@ -29,7 +29,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_comment = ItemComment.new
-    #byebug
   end
 
   def edit
@@ -43,7 +42,9 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    tag_list = params[:item][:tag.name].split(',')
     if@item.update(item_params)
+      @item.update_tags(tag_list)
       redirect_to item_path(@item)
     else
       render :edit

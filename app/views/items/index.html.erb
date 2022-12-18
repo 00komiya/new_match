@@ -4,15 +4,15 @@
       <div class="text-center pt-2">
         <h3 class="text-black border border-white">投稿一覧</h3>
       </div>
+      <%= render 'page', items: @items %>
       <%= render 'index', items: @items %>
     </div>
   </div>
 </div>
 
-
-
 <% @tags.each do |tag| %>
-<%#= link_to item_item_tag_path(@item, tag.item_tags.find_by(item_id: @item.id)) do %>
+<%= link_to search_path(model: "tag", method: "perfect", content: tag.name) do %>
 <%= tag.name %>
-<%# end %>
+<%="(#{tag.items.count})" %>
+<% end %>
 <% end %>

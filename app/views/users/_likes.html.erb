@@ -1,0 +1,10 @@
+<div id="like_list_<%= item.id %>">
+  <div class="border">
+    <%= image_tag item.get_image, size:'50x50' %>
+    <%=item.name %>
+    <%= link_to "詳細", item_path(item) %>
+  <div class="text-right">
+    <div id="item_<%= item.id %>"><%= render "likes/like", item: item %></div>
+  </div>
+  </div>
+</div>

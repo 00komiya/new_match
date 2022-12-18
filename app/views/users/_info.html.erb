@@ -18,6 +18,10 @@
       <th>自己紹介</th>
         <td><%= simple_format user.introduction %></td>
     </tr>
+    <tr>
+      <th>❤︎一覧</th>
+      <td><p><%= link_to"気になった商品はコチラ",likes_user_path(@user) %></p></td>
+    </tr>
   </table>
   <% if user == current_user %>
     <%= link_to edit_user_path(user), class: "btn btn-warning btn-block" do %>
