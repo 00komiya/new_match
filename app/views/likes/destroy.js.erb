@@ -1,1 +1,3 @@
 $('#like_buttons_<%= @item.id %>').html("<%= j(render "likes/like", item: @item) %>");
+$("#like_list_<%= @item.id %>").remove();
+$("#item_<%= @item.id %>").html("<%= j(render "likes/like", item: @item) %>");

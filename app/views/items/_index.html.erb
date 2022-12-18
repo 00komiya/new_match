@@ -1,12 +1,3 @@
-
-<div>
-  <% if items.present? %>
-    <%= paginate items %>
-    <%= link_to '新しい順', items_path(latest: "true") %>|
-    <%= link_to '古い順', items_path(old: "true") %>
-  <% end %>
-</div>
-
   <% items.each do |item| %>
     <div class="card m-2">
       <div class="card-image">
@@ -14,11 +5,11 @@
           <%= image_tag item.get_image, size:'50x50' %>
         <% end %>
       </div>
-      <%= item.shop_name %>
+      <%= item.name %>
       <div id="like_buttons_<%= item.id %>">
         <%= render 'likes/like', item: item %></div>
-        コメント件数：<%= item.item_comments.count %>
-        <%= l item.created_at %>
+        コメント件数：<%= item.item_comments.count %><br>
+        <%= link_to item.user.name,item %><%= l item.created_at %>
         <%= link_to "詳細はコチラ", item_path(item) %>
     </div>
   <% end %>

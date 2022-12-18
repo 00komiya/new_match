@@ -1,0 +1,7 @@
+<div>
+  <% if items.present? %>
+    <%= paginate items %>
+    <%= link_to '新しい順', items_path(latest: "true") %>|
+    <%= link_to '古い順', items_path(old: "true") %>
+  <% end %>
+</div>

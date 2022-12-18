@@ -1,5 +1,9 @@
-<% users.each do |user| %>
-  <%= image_tag user.get_profile_image, size: '50x50' %>
-  <%= user.name %>
-　<%= link_to '詳細', user %>
-<% end %>
+<table class="table">
+  <% users.each do |user| %>
+    <tr class="border">
+      <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+      <td><%= user.name %></td><br>
+      <td><%= link_to '詳細', user %></td>
+    </tr>
+  <% end %>
+</table>
