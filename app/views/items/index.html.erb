@@ -1,18 +1,22 @@
 <div class='container-fluid'>
   <div class="row p-3">
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+    <div class="col-md-3">
       <div class="text-center pt-2">
-        <h3 class="text-black border border-white">投稿一覧</h3>
+        <h3 class="text-black border border-white">タグ一覧</h3>
+        <%= render 'searches/tag_list',tags: @tags %>
       </div>
-      <%= render 'page', items: @items %>
+    </div>
+      <div class="col-md-6 offset-md-1" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+      <div class="text-center pt-2">
+        <h3 class="text-black border border-white">新商品投稿一覧</h3></div>
+      <div>
+        <% if @items.present? %>
+          <%= paginate @items %>
+          <%= link_to '新しい順', items_path(latest: "true") %>|
+          <%= link_to '古い順', items_path(old: "true") %>
+        <% end %>
+      </div>
       <%= render 'index', items: @items %>
     </div>
   </div>
 </div>
-
-<% @tags.each do |tag| %>
-<%= link_to search_path(model: "tag", method: "perfect", content: tag.name) do %>
-<%= tag.name %>
-<%="(#{tag.items.count})" %>
-<% end %>
-<% end %>

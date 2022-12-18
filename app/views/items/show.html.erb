@@ -26,13 +26,13 @@
         </tr>
         <tr class="border">
           <td>タグ</td>
-          <td>
-            <% @item.tags.each do |tag| %>
-             <span>#<%= tag.name %>
-             <%= link_to item_item_tag_path(@item, tag.item_tags.find_by(item_id: @item.id)), method: :delete do %>
-               <i class="fas fa-times"></i>
-             <% end %>
-             </span>
+          <td><% @item.tags.each do |tag| %>
+            <span><%= link_to items_path(tag_id: tag.id) do %>#<%= tag.name %><% end %></span>
+              <% if @item.user_id == current_user.id %>
+                <%= link_to item_item_tag_path(@item, tag.item_tags.find_by(item_id: @item.id)), method: :delete do %>
+                  <i class="fas fa-times"></i>
+                <% end %>
+              <% end %>
             <% end %>
           </td>
         </tr>

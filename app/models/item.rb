@@ -26,6 +26,10 @@ class Item < ApplicationRecord
     end
   end
 
+  def tag_name
+    self.tags.map{|tag| "#{tag.name}"}.join(',')
+  end
+
   def save_tags(saveitem_tags)
     # 現在のユーザーの持っているskillを引っ張ってきている
     current_tags = self.tags.pluck(:name) unless self.tags.nil?
