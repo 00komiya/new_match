@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-8 offset-2">
       <h3><%= @user.name %>さんの会員情報編集</h3>
-      <%= form_with model:@user, local:true do |f| %>
+      <%= form_with url: admin_user_path(@user), method: :patch, model:@user do |f| %>
       <%= render 'layouts/errors', obj: @user %>
         <div class="form-group">
           <%= f.label :name, "名前" %>

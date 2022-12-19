@@ -13,7 +13,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
-    @user = user.find(params[:id])
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to admin_user_path(@user)
     else
