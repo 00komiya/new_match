@@ -9,46 +9,60 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-        <% if user_signed_in? %>
+        <% if admin_signed_in? %>
           <li class="my-auto pr-5 mr-5 text-light">
-            ようこそ、<%= current_user.name %>さん！
-          </li>
+            <b>管理者アカウント</b>でログインしています。</li>
+          <li class="mx-4">
+            <%= link_to "商品投稿一覧", admin_items_path, class: "btn btn-outline-light" %></li>
+          <li class="mx-4"><%= link_to "会員一覧", admin_users_path, class: "btn btn-outline-light" %></li>
+          <li class="mx-4"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light" %></li>
+
+        <% elsif user_signed_in? %>
+          <li class="my-auto pr-5 mr-5 text-light">
+            ようこそ、<%= current_user.name %>さん！</li>
           <li>
             <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
               <i class="fas fa-book-reader"></i> マイページ
-            <% end %>
+            <% end %></li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト<% end %></li>
           </li>
           <li>
             <%= link_to new_item_path, class: 'nav-link text-light' do %>
               <i class="fas fa-pencil-ruler"></i> 投稿する
-            <% end %>
-          </li>
+            <% end %></li>
           <li>
             <%= link_to items_path, class: 'nav-link text-light' do %>
-              <i class="far fa-eye"></i>新商品チェック
-            <% end %>
-          </li>
+              <i class="far fa-eye"></i> 新商品チェック
+            <% end %></li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
-              <i class="fas fa-sign-out-alt"></i> ログアウト
-            <% end %>
-          </li>
+            <div class="btn-group">
+              <button type="button" class="btn dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              　メニュー</button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/home/about">サイトについて</a>
+                <a class="dropdown-item" href="#">マイページ</a>
+                <a class="dropdown-item" href="/users/:id/likes">いいね一覧</a>
+                <a class="dropdown-item" href="/users">会員一覧</a>
+                <a class="dropdown-item" href="/users/quit">退会する</a>
+                <a class="dropdown-item" href="/users/out">ログアウト</a>
+              </div>
+            </div></li>
         <% else %>
-          <li>
-            <%= link_to root_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> ホーム
-            <% end %>
-          </li>
           <li>
             <%= link_to about_path, class: 'nav-link text-light' do %>
               <i class="fas fa-link"></i> アバウト
-            <% end %>
-          </li>
+            <% end %></li>
+          <li>
+            <%= link_to root_path, class: 'nav-link text-light' do %>
+              <i class="fas fa-home"></i> ホーム
+            <% end %></li>
+          <li>
           <li>
             <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
               <i class="fas fa-user-plus"></i> 新規登録
-            <% end %>
-          </li>
+            <% end %></li>
           <li>
             <%= link_to new_user_session_path , class: 'nav-link text-light' do %>
               <i class="fas fa-sign-in-alt"></i> ログイン
