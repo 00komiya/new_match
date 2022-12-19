@@ -1,5 +1,5 @@
-<table class="table border bg-light">
-  <thead>
+<table class="table table-bordered table-hover">
+  <thead class="table-secondary">
   	<th>会員ID</th>
     <th>名前</th>
     <th>会員ステータス</th>
@@ -17,8 +17,8 @@
           <span>有効</span>
         <% end %>
         </td>
-        <td><%= link_to "詳細", admin_user_path(user), class: "btn btn-warning" %></td>
-    </tr>
+        <td><%= link_to "詳細", admin_user_path(user), class: "btn btn-primary rounded-pill" %></td>
+      </tr>
     <% end %>
   </tbody>
 </table>

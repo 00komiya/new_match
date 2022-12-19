@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3><%= @user.name %>さんの会員情報編集</h3>
+      <%= form_with model:@user, local:true do |f| %>
+      <%= render 'layouts/errors', obj: @user %>
+        <div class="form-group">
+          <%= f.label :name, "名前" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :profile_image, "プロフィール写真" %>
+          <%= f.file_field :profile_image, class: "form-control-file", accept: 'image/*' %>
+        </div>
+        <div class="row">
+        <div class="col-6 form-group">
+          <%= f.label :age, "年代", class: "control-label" %>
+          <%= f.select :age, [["",""], ["10代"], ["20代"], ["30代"], ["40代"], ["50代"], ["60代"], ["70代"], ["80代以上"] ], {}, class: "form-control" %>
+        </div>
+        <div class="col-6 form-group">
+          <%= f.label :sex, "性別", class:'control-label' %>
+          <%= f.select :sex, [["",""], ["女性"], ["男性"]], {}, class: "form-control" %>
+        </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :address, "地域（県や市など）" %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :introduction, "自己紹介（250文字未満）" %>
+          <%= f.text_area :introduction, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label "会員ステータス" , class: "control-label"%>
+          <%= f.radio_button :is_deleted, :false %>
+          <%= f.label :is_deleted, "有効", value: false %>
+          <%= f.radio_button :is_deleted, :true %>
+          <%= f.label :is_deleted, "退会", value: true %>
+        </div>
+        <div class="text-right">
+          <%= f.submit "変更を保存", class: "btn btn-success rounded-pill" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

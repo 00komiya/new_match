@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3><%= @user.name %>さんの詳細情報</h3>
+      <table class="table table-bordered table-hover">
+        <tr>
+          <td>会員ID</td>
+          <td><%= @user.id %></td>
+        </tr>
+        <tr>
+          <td>名前</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td>プロフィール写真</td>
+          <td><%= image_tag @user.get_profile_image, size:'150x70' %></td>
+        </tr>
+        <tr>
+          <td>年代</td>
+          <td><%= @user.age %></td>
+        </tr>
+        <tr>
+          <td>性別</td>
+          <td><%= @user.sex %></td>
+        </tr>
+        <tr>
+          <td>地域</td>
+          <td><%= @user.address %></td>
+        </tr>
+        <tr>
+          <td>自己紹介</td>
+          <td><%= @user.introduction %></td>
+        </tr>
+        <tr>
+          <td>Eメール</td>
+          <td><%= @user.email%></td>
+        </tr>
+          <td>会員ステータス</td>
+          <td>
+          <% if @user.is_deleted? %>
+            <span>退会済み</span>
+          <% else %>
+            <span>有効</span>
+          <% end %>
+          </td>
+        <tr>
+          <td></td>
+          <td>
+            <%= link_to "投稿一覧", admin_item_path(@user), class: "btn btn-info" %></td>
+            <%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-success" %>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
