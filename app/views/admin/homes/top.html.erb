@@ -1,5 +1,12 @@
-top
+<div class = "container">
+  <div class="row" >
+    <div class="col text-center mt-5 pt-5">
+      <h1>管理者操作ページになります</h1><br>
+      <p>悪質なユーザーの退会や</p>
+      <p>悪質なコメントの削除が可能です。</p>
 
-<%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %>
-  <i class="fas fa-sign-out-alt"></i> ログアウト
- <% end %>
+      <%= link_to "投稿一覧", admin_items_path, class: 'btn btn-primary' %>
+      <%= link_to "会員一覧", admin_users_path, method: :patch, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>

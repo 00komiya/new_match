@@ -6,6 +6,8 @@ class ItemCommentsController < ApplicationController
     @comment.save
     @item_comment = ItemComment.new
     # redirect_to request.referer 非同期処理
+
+    @item.create_notification_comment!(current_user, @comment.id)
   end
 
   def destroy

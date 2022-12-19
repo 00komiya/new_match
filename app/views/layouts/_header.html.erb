@@ -21,14 +21,6 @@
           <li class="my-auto pr-5 mr-5 text-light">
             ようこそ、<%= current_user.name %>さん！</li>
           <li>
-            <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
-              <i class="fas fa-book-reader"></i> マイページ
-            <% end %></li>
-          <li>
-            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
-              <i class="fas fa-sign-out-alt"></i> ログアウト<% end %></li>
-          </li>
-          <li>
             <%= link_to new_item_path, class: 'nav-link text-light' do %>
               <i class="fas fa-pencil-ruler"></i> 投稿する
             <% end %></li>
@@ -37,19 +29,32 @@
               <i class="far fa-eye"></i> 新商品チェック
             <% end %></li>
           <li>
-            <div class="btn-group">
-              <button type="button" class="btn dropdown-toggle text-white" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              　メニュー</button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/home/about">サイトについて</a>
-                <a class="dropdown-item" href="#">マイページ</a>
-                <a class="dropdown-item" href="/users/:id/likes">いいね一覧</a>
-                <a class="dropdown-item" href="/users">会員一覧</a>
-                <a class="dropdown-item" href="/users/quit">退会する</a>
-                <a class="dropdown-item" href="/users/out">ログアウト</a>
+            <% if unchecked_notifications.any? %>
+              <li><%= link_to notifications_path, class: "btn btn-light" do %>
+                <i class="fas fa-bell"></i><i class="fas fa-exclamation"></i><% end %></li>
+            <% else %>
+              <li><%= link_to notifications_path, class: "btn btn-light" do %>
+                <i class="fas fa-bell"></i><% end %></li>
+            <% end %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              メニュー</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "ホーム", root_path, class: 'dropdown-item' %></a>
+                <%= link_to "サイトについて", about_path, class: 'dropdown-item' %></a>
+                <%= link_to "マイページ", user_path(current_user.id), class: 'dropdown-item' %></a>
+                <%= link_to "いいねリスト", likes_user_path(current_user.id), class: 'dropdown-item' %></a>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></a>
+                <%= link_to "退会はコチラ", users_quit_path, class: 'dropdown-item' %></a>
               </div>
-            </div></li>
+          </li>
         <% else %>
+          <li>
+           <%= link_to users_guest_sign_in_path, class: "btn btn-outline-dark text-white", method: :post do %>
+              <i class="fas fa-walking"></i><i class="fas fa-sign-in-alt"></i> ゲストログイン（閲覧用）
+            <% end %></li>
+          <li>
           <li>
             <%= link_to about_path, class: 'nav-link text-light' do %>
               <i class="fas fa-link"></i> アバウト
@@ -58,7 +63,6 @@
             <%= link_to root_path, class: 'nav-link text-light' do %>
               <i class="fas fa-home"></i> ホーム
             <% end %></li>
-          <li>
           <li>
             <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
               <i class="fas fa-user-plus"></i> 新規登録

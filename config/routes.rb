@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   get "/users/quit" => "users#quit"
   patch "/users/out" => "users#out"
 
+  resources :notifications, only: [:index, :destroy]
+
   resources :users do
     member do
       get :likes
@@ -30,12 +32,6 @@ Rails.application.routes.draw do
    resources :item_tags, only: [:destroy]
   end
 
-  namespace :admin do
-    root :to => "homes#top"
-    resources :items, only: [:index, :show, :destroy]
-    resources :item_comments, only: [:destroy]
-    resources :users, only: [:index, :show, :edit, :update]
-  end
 
 
 end
