@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-8 offset-2">
       <h3>会員一覧</h3>
-      <%= render "index", users: @users %>
       <%= paginate @users %>
+      <%= render "index", users: @users %>
     </div>
   </div>
 </div>

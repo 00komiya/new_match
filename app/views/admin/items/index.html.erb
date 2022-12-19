@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3>商品投稿一覧</h3>
+      <%= paginate @items %>
+      <%= render "index", items: @items %>
+    </div>
+  </div>
+</div>

@@ -1,9 +1,13 @@
 <div class="container">
   <div class='row justify-content-center mx-auto'>
     <div class="notification_box">
-      <h4 class="text-center"><i class="fas fa-bell"></i>通知</h4>
-        <p class="text-right"><%= link_to "全削除",notification_path(@notifications), method: :delete,class:"btn btn-light fas fa-trash" %></p>
-          <%= render @notifications %>
+      <h4 class="text-center"><i class="fas fa-bell"></i>通知
+        <span class="text-right"><%= link_to "全削除",notification_path(@notifications), method: :delete,class:"btn btn-outline-danger" %></span></h4>
+          <% if @notifications.exists? %>
+            <%= render 'notification', notifications: @notifications %>
+          <% else %>
+            <p>通知はありません</p>
+          <% end %>
 　　</div>
 　</div>
 </div>

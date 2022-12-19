@@ -1,21 +1,16 @@
+<% notifications.each do |notification| %>
 <% visitor = notification.visitor %>
 
-<span>
-  <%= link_to user_path(visitor) do %>
-    <%= visitor.name %>
-  <% end %>
-  <span>さんが</span><br>
-
+<p>
   <% case notification.action %>
     <% when 'like' %>
       <%= link_to user_path(visitor) do %><strong><%= visitor.name %><% end %></strong>さんが
-        <strong><%= link_to item_path(notification.item_id) do %><%= item.name.truncate(20)%><% end %></strong>にいいねしました。
+        <strong><%= link_to item_path(notification.item_id) do %><%= notification.item.name.truncate(20)%><% end %></strong>にいいねしました。
         <%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
     <% when 'comment' %>
       <%= link_to user_path(visitor) do %><strong><%= visitor.name %><% end %></strong>さんが
-        <strong><%= link_to item_path(notification.item_id) do %><%= item.name.truncate(20)%><% end %></strong>にコメントしました。
+        <strong><%= link_to item_path(notification.item_id) do %><%= notification.item.name.truncate(20)%><% end %></strong>にコメントしました。
         <%= " (#{time_ago_in_words(notification.created_at)} 前)" %>
-    <% else %>
-      <p>通知はありません</p>
     <% end %>
-</span>
+</p>
+<% end %>

@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3>詳細/不適切なコメントを削除できます</h3>
+      <table class="table table-bordered table-hover">
+        <tr>
+          <td>商品ID</td>
+          <td><%= @item.id %></td>
+        </tr>
+        <tr>
+          <td><商品写真/td>
+          <td><%= image_tag @item.get_image, size:'150x70' %></td>
+        </tr>
+        <tr>
+          <td>商品名</td>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <td>コンビニ名</td>
+          <td><%= @item.shop_name %></td>
+        </tr>
+        <tr>
+          <td>商品紹介</td>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <td>タグ</td>
+          <td><%= @item.tag_name %></td>
+        <tr>
+          <td></td>
+          <td>
+            <%= link_to "削除", admin_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

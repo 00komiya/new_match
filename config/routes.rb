@@ -32,6 +32,12 @@ Rails.application.routes.draw do
    resources :item_tags, only: [:destroy]
   end
 
+  namespace :admin do
+    root :to => "homes#top"
+    resources :users, only: [:index, :show, :edit, :update]
+    resources :items, only: [:index, :show, :destroy]
+    resources :item_comments, only: [:destroy]
+  end
 
 
 end
