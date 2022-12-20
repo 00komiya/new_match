@@ -9,6 +9,11 @@ class User < ApplicationRecord
   has_many :item_comments, dependent: :destroy
   has_one_attached :profile_image
 
+  #自分から相手への通知
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
+  #相手から自分への通知
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+
   def get_profile_image
     (profile_image.attached?) ? profile_image : 'no_profile_image.jpeg'
   end

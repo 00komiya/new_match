@@ -1,5 +1,13 @@
-top
-
-<%= link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %>
-  <i class="fas fa-sign-out-alt"></i> ログアウト
- <% end %>
+<div class = "container">
+  <div class="row" >
+    <div class="col text-center mt-5 pt-5">
+      <h3>管理者操作ページ</h3><br>
+      <p>不適切なユーザーの退会や</p>
+      <p>不適切なコメントの削除が可能です。</p>
+      <div class="m-3 pt-3">
+        <%= link_to "商品投稿一覧", admin_items_path, class: "btn btn-outline-primary btn-lg rounded-pill" %>
+        <%= link_to "会員一覧", admin_users_path, class: "btn btn-outline-primary btn-lg rounded-pill" %>
+      </div>
+    </div>
+  </div>
+</div>

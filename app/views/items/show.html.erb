@@ -7,8 +7,9 @@
 
       <table class="table border">
         <tr class="border">
-          <td><b><%= @item.user.name %></b>さん<%= @item.user.age %><%= @item.user.sex %></td>
-          <td class="text-right"><%= l @item.created_at %>
+          <td><%= link_to user_path(@item.user) do %>
+            <b><%= @item.user.name %></b>さん<% end %><%= @item.user.age %><%= @item.user.sex %></td>
+        <td class="text-right"><%= l @item.created_at %>
         </tr>
         <tr>
           <td colspan="2"><%= image_tag @item.get_image, size:"50X50" %></td>
