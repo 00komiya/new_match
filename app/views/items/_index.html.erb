@@ -9,7 +9,8 @@
       <div id="like_buttons_<%= item.id %>">
         <%= render 'likes/like', item: item %></div>
         コメント件数：<%= item.item_comments.count %><br>
-        <%= link_to item.user.name,item %><%= l item.created_at %>
+        <%= link_to user_path(item.user) do %>
+        <%= item.user.name %><% end %><%= l item.created_at %>
         <%= link_to "詳細はコチラ", item_path(item) %>
     </div>
   <% end %>

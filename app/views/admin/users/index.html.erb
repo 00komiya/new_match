@@ -3,7 +3,30 @@
     <div class="col-8 offset-2">
       <h3>会員一覧</h3>
       <%= paginate @users %>
-      <%= render "index", users: @users %>
+      <table class="table table-bordered table-hover">
+        <thead class="table-secondary">
+        	<th>会員ID</th>
+          <th>名前</th>
+          <th>会員ステータス</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td>
+              <% if user.is_deleted? %>
+                <span>退会済み</span>
+              <% else %>
+                <span>有効</span>
+              <% end %>
+              </td>
+              <td><%= link_to "詳細", admin_user_path(user), class: "btn btn-primary rounded-pill" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <h3>詳細/不適切なコメントを削除できます</h3>
+      <h3>詳細画面</h3>
       <table class="table table-bordered table-hover">
         <tr>
           <td>商品ID</td>
@@ -29,9 +29,10 @@
         <tr>
           <td></td>
           <td>
-            <%= link_to "削除", admin_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
+            <%= link_to "削除", admin_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger rounded-pill" %>
         </tr>
       </table>
+            <%= render 'admin/item_comments/index', item: @item, item_comments: @item_comments %>
     </div>
   </div>
 </div>
