@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   scope :old, -> {order(created_at: :asc)}
 
   def get_image
-    (image.attached?) ? image : 'no_image.jpeg'
+    (image.attached?) ? image : 'no_image.jpg'
   end
 
   def liked_by?(user)

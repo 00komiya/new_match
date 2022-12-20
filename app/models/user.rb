@@ -15,7 +15,7 @@ class User < ApplicationRecord
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
 
   def get_profile_image
-    (profile_image.attached?) ? profile_image : 'no_profile_image.jpeg'
+    (profile_image.attached?) ? profile_image : 'no_profile_image.jpg'
   end
 
   def self.guest
