@@ -18,6 +18,11 @@ th,td{
   white-space: nowrap;
 }
 
+.link {
+    text-decoration: none;
+    color: white ;
+}
+
 .box{
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   background-size: cover;

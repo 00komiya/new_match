@@ -1,28 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <h3>商品投稿一覧</h3>
-      <%= paginate @items %>
-      <table class="table table-bordered table-hover">
-        <thead class="table-secondary">
-        	<th>商品ID</th>
-          <th>商品名</th>
-          <th>タグ</th>
-          <th>名前</th>
-          <th></th>
-        </thead>
-        <tbody>
-          <% @items.each do |item| %>
-            <tr>
-              <td><%= item.id %></td>
-              <td><%= item.name %></td>
-              <td><%= item.tag_name %></td>
-              <td><%= item.user.name %></td>
-              <td><%= link_to "詳細", admin_item_path(item), class: "btn btn-primary rounded-pill" %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <h3>投稿一覧</h3>
+      <%= render 'index',items: @items %>
     </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-8 offset-2">
-      <h3>詳細画面</h3>
-      <table class="table table-bordered table-hover">
+      <h3>投稿詳細</h3>
+      <table class="table table-dark table-striped">
         <tr>
           <td>商品ID</td>
           <td><%= @item.id %></td>
@@ -32,7 +32,11 @@
             <%= link_to "削除", admin_item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger rounded-pill" %>
         </tr>
       </table>
-            <%= render 'admin/item_comments/index', item: @item, item_comments: @item_comments %>
+
+      <div class=".font-weight-bold">
+        <h4>コメント一覧</h4><br>
+          <%= render 'admin/item_comments/index', item: @item, item_comments: @item_comments %>
+      </div>
     </div>
   </div>
 </div>

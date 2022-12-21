@@ -1,13 +1,32 @@
-<div class = "container">
-  <div class="row" >
-    <div class="col text-center mt-5 pt-5">
-      <h3>管理者操作ページ</h3><br>
-      <p>不適切なユーザーの退会や</p>
-      <p>不適切なコメントの削除が可能です。</p>
-      <div class="m-3 pt-3">
-        <%= link_to "商品投稿一覧", admin_items_path, class: "btn btn-outline-primary btn-lg rounded-pill" %>
-        <%= link_to "会員一覧", admin_users_path, class: "btn btn-outline-primary btn-lg rounded-pill" %>
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3>会員一覧</h3>
+      <%= paginate @users %>
+      <table class="table table-dark table-striped">
+        <thead>
+        	<th>会員ID</th>
+          <th>名前</th>
+          <th>会員ステータス</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= user.id %></td>
+              <td><%= user.name %></td>
+              <td>
+              <% if user.is_deleted? %>
+                <span>退会済み</span>
+              <% else %>
+                <span>有効</span>
+              <% end %>
+              </td>
+              <td><%= link_to "詳細", admin_user_path(user), class: "btn btn-primary rounded-pill" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

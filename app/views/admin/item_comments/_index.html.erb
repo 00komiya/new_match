@@ -1,9 +1,11 @@
-<% item.item_comments.each do |item_comment| %>
-  <%= link_to admin_user_path(item_comment.user) do %>
-    <%= item_comment.user.name %>
+<ul class="comment bg-dark text-white pl-2">
+  <% item.item_comments.each do |item_comment| %>
+  <li>
+    <%= link_to admin_user_path(item_comment.user) do %>
+      <%= item_comment.user.name %>さん
+    <% end %>
+      <%= item_comment.comment %>
+      <%= link_to "削除", admin_item_comment_path(item_comment), method: :delete, data: { confirm: '該当のコメントを消しますか？' }, class: "btn btn-danger rounded-pill ml-2" %>
+  </li>
   <% end %>
-    <%= item_comment.comment %>
-    <div class="comment-delete">
-     <%= link_to "削除", admin_item_comment_path(item_comment), method: :delete, data: { confirm: '該当のコメントを消しますか？' }, class: "btn btn-danger rounded-pill" %>
-    </div>
-<% end %>
+</ul>

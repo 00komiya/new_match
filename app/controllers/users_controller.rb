@@ -29,9 +29,9 @@ class UsersController < ApplicationController
    def update
     @user = User.find(params[:id])
    if @user.update(user_params)
-    redirect_to user_path(@user) , notice: "プロフィールを更新しました"
+    redirect_to user_path(@user) , flash: {success: "更新が完了しました"}
    else
-     render :edit , notice: "プロフィールの編集に失敗しました"
+     render :edit , alert: "編集の保存に失敗しました。"
    end
   end
 
@@ -40,9 +40,9 @@ class UsersController < ApplicationController
   end
 
   def out
-    current_user.update
+    current_user.update(is_deleted: true)
     sign_out
-    redirect_to root_path
+    redirect_to root_path , notice: "退会が完了しました。またのご利用をお待ちしております。"
   end
 
   def likes

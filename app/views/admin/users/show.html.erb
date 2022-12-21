@@ -1,8 +1,8 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
-      <h3><%= @user.name %>さんの詳細情報</h3>
-      <table class="table table-bordered table-hover">
+    <div class="col-6">
+      <h3><%= @user.name %>さんの会員詳細</h3>
+      <table class="table table-dark table-striped">
         <tr>
           <td>会員ID</td>
           <td><%= @user.id %></td>
@@ -35,6 +35,7 @@
           <td>Eメール</td>
           <td><%= @user.email%></td>
         </tr>
+        <tr>
           <td>会員ステータス</td>
           <td>
           <% if @user.is_deleted? %>
@@ -42,14 +43,14 @@
           <% else %>
             <span>有効</span>
           <% end %>
-          </td>
-        <tr>
-          <td></td>
-          <td>
-            <%#= link_to "投稿一覧", admin_items_path, class: "btn btn-info" %>
-            <%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-success" %></td>
+          <%= link_to "編集", edit_admin_user_path(@user), class: "btn btn-success ml-5" %></td>
         </tr>
       </table>
+    </div>
+
+    <div class="col-6">
+      <h3><%= @user.name %>さんの投稿一覧</h3>
+      <%= render 'admin/items/index',items: @items %>
     </div>
   </div>
 </div>
