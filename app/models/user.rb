@@ -9,6 +9,9 @@ class User < ApplicationRecord
   has_many :item_comments, dependent: :destroy
   has_one_attached :profile_image
 
+  validates :name, length: { minimum: 2, maximum: 20 }, uniqueness: true
+  validates :introduction, length: { maximum: 50 }
+
   #自分から相手への通知
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   #相手から自分への通知
@@ -32,4 +35,5 @@ class User < ApplicationRecord
       User.where('name LIKE ?', '%'+content+'%')
     end
   end
+
 end

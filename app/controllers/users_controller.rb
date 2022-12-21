@@ -29,10 +29,9 @@ class UsersController < ApplicationController
    def update
     @user = User.find(params[:id])
    if @user.update(user_params)
-     flash[:notice] = "プロフィールを更新しました"
-    redirect_to user_path(@user)
+    redirect_to user_path(@user) , notice: "プロフィールを更新しました"
    else
-     render :edit
+     render :edit , notice: "プロフィールの編集に失敗しました"
    end
   end
 
@@ -41,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def out
-    current_user.destroy()
+    current_user.update
     sign_out
     redirect_to root_path
   end
@@ -61,7 +60,7 @@ class UsersController < ApplicationController
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == "guestuser"
-      redirect_to user_path(current_user) , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to user_path(current_user) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません"
     end
   end
 end

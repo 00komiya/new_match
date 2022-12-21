@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "home/about" => "homes#about", as: "about"
   get "search" => "searches#search"
 
-  devise_for :user
     # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip:[:registrations, :passwords],controllers:{
@@ -12,7 +11,10 @@ Rails.application.routes.draw do
     #ゲストログイン
   devise_scope :user do
     post "users/guest_sign_in", to: "users/sessions#guest_sign_in"
+    post "user/sign_in", to: "users/sessions#create"
   end
+
+  devise_for :user
 
   # 会員の退会確認画面,退会処理
   get "/users/quit" => "users#quit"

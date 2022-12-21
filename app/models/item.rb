@@ -8,6 +8,10 @@ class Item < ApplicationRecord
 
   has_one_attached :image
 
+  validates :name, presence:true
+  validates :shop_name, presence:true
+  validates :introduction,presence:true,length:{maximum:200}
+
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
 

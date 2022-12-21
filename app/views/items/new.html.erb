@@ -1,4 +1,5 @@
 <div class="container">
+  <%= render 'layouts/errors', obj: @item %>
   <div class="row mt-5">
     <h6 class="text-center">//参考タグリスト//</h6>
      <div><%= render 'searches/tag_list',tags: @tags %></div>
