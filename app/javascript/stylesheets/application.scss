@@ -1,2 +1,28 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.field_with_errors {
+  display: contents;
+  /*input {
+    @extend .is-invalid;
+  }*/
+}
+
+th,td{
+  white-space: nowrap;
+}
+
+.box{
+  background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+  background-size: cover;
+}
+
+.taglist{
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}

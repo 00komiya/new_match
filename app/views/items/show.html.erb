@@ -1,12 +1,21 @@
-<div class="container-fluid">
-  <div class="row p-3">
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-8 offset-2 shadow-lg rounded box">
       <div class="text-center pt-2">
-        <h3 class="text-black border border-white">商品情報詳細</h3>
+        <h3 class="text-black border-bottom border-white">商品情報詳細</h3>
       </div>
 
-      <table class="table border">
-        <tr class="border">
+      <table class="table table-bordered">
+        <% if @item.user_id == current_user.id %>
+        <tr class="table-borderless">
+          <td></td>
+          <td class="text-right">
+            <%= link_to "編集", edit_item_path(@item), class: "btn btn-success"%>
+            <%= link_to "削除", @item, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
+          </td>
+        </tr>
+        <% end %>
+        <tr class="table-borderless">
           <td><%= link_to user_path(@item.user) do %>
             <b><%= @item.user.name %></b>さん<% end %><%= @item.user.age %><%= @item.user.sex %></td>
         <td class="text-right"><%= l @item.created_at %>
@@ -37,17 +46,10 @@
             <% end %>
           </td>
         </tr>
-        <% if @item.user_id == current_user.id %>
-        <tr>
-          <td>
-            <%= link_to "編集", edit_item_path(@item), class: "btn btn-success"%>
-            <%= link_to "削除", @item, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
-          </td>
-        </tr>
-        <% end %>
       </table>
 
       <div id="comments_index">
+        <h6>コメント欄</h6>
         <%= render 'item_comments/index', item: @item %></div>
       <div id="comments_form">
       <%= render 'item_comments/form', item: @item, item_comment: @item_comment %></div>

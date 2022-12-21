@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
+    @tags = Tag.all
   end
 
   def create
@@ -36,9 +37,11 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @item_comment = ItemComment.new
+    @tags = Tag.all
   end
 
   def edit
+    @tags = Tag.all
     @item = Item.find(params[:id])
     if @item.user == current_user
       render :edit

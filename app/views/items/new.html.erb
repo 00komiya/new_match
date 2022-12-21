@@ -1,10 +1,15 @@
 <div class="container">
-  <div class="row p-3">
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded" style="background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);">
+  <div class="row mt-5">
+    <h6 class="text-center">//参考タグリスト//</h6>
+     <div><%= render 'searches/tag_list',tags: @tags %></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded box">
       <div class="text-center pt-2">
-        <h3 class="text-black border border-white">新規投稿</h3>
+        <h3 class="text-black border-bottom border-white">新規投稿</h3>
       </div>
       <%= render 'form', item: @item %>
+      </div>
     </div>
   </div>
 </div>

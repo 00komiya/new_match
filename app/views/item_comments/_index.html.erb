@@ -1,12 +1,20 @@
-<% item.item_comments.each do |item_comment| %>
-  <%= link_to user_path(item_comment.user) do %>
-    <%= image_tag item_comment.user.get_profile_image, size: "50x50" %>
-    <%= item_comment.user.name %>
-  <% end %>
-  <%= item_comment.comment %>
-  <% if item_comment.user == current_user %>
-    <div class="comment-delete">
-      <%= link_to "Destroy", item_item_comment_path(item_comment.item, item_comment), method: :delete, remote: true, class: "btn btn-danger" %>
-    </div>
-  <% end %>
-<% end %>
+<table>
+  <tbody>
+    <% item.item_comments.each do |item_comment| %>
+    <tr>
+      <td>
+        <%= link_to user_path(item_comment.user) do %>
+          <%= image_tag item_comment.user.get_profile_image, size: "100x100" %><br>
+          <%= item_comment.user.name %>
+        <% end %>
+      </td>
+      <td><%= item_comment.comment %></td>
+      <td>
+        <% if item_comment.user == current_user %>
+          <%= link_to "削除", item_item_comment_path(item_comment.item, item_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+        <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
