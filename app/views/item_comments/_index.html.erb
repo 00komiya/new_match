@@ -4,8 +4,8 @@
     <tr>
       <td>
         <%= link_to user_path(item_comment.user) do %>
-          <%= image_tag item_comment.user.get_profile_image, size: "100x100" %><br>
-          <%= item_comment.user.name %>
+          <%= image_tag item_comment.user.get_profile_image, size: "50x50" %><br>
+          <%= item_comment.user.name %>さん
         <% end %>
       </td>
       <td><%= item_comment.comment %></td>

@@ -4,7 +4,6 @@
 *{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 .field_with_errors {
@@ -14,20 +13,40 @@
   }*/
 }
 
-th,td{
+a{
+  color: #000000;
+  text-decoration: none;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-all;
+  word-wrap: break-all;
+}
+
+th,td {
   white-space: nowrap;
 }
 
-.link {
-    text-decoration: none;
-    color: white ;
-}
-
-.box{
+.box {
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
   background-size: cover;
 }
 
-.taglist{
+.taglist {
   background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+.image-post {
+  width: 400px;
+  height: 250px;
+}
+
+.navbar-toggler {
+  background-color: #000000;
+}
+
+.navbar-toggler {
+  border-color: #ffffff;
 }

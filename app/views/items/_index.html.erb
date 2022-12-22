@@ -1,16 +1,27 @@
 <% items.each do |item| %>
-  <div class="card m-2">
-    <div class="card-image">
+<table class="table text-center">
+  <tr>
+    <td>
       <%= link_to item_path(item) do %>
-        <%= image_tag item.get_image, size:'50x50' %>
+        <%= image_tag item.get_image, class: "image-post" %>
       <% end %>
-    </div>
-    <%= item.name %>
-    <div id="like_buttons_<%= item.id %>">
-      <%= render 'likes/like', item: item %></div>
-      コメント件数：<%= item.item_comments.count %><br>
-      <%= link_to user_path(item.user) do %>
-      <%= item.user.name %><% end %><%= l item.created_at %>
-      <%= link_to "詳細を確認", item_path(item) %>
-  </div>
+    </td>
+  </tr>
+  <tr>
+    <td>商品名:<%= item.name %></td>
+  </tr>
+  <tr>
+    <td class="table-borderless"><div id="like_buttons_<%= item.id %>">
+      <%= render 'likes/like', item: item %></div>コメント件数：<%= item.item_comments.count %><br></td>
+  </tr>
+  <tr>
+    <td>タグ:<% item.tags.each do |tag| %>
+             <%= tag.name %><% end %>
+  </tr>
+  <tr>
+    <td><%= link_to "詳細を確認", item_path(item), class: "btn btn-primary" %></td>
+  </tr>
+</table>
 <% end %>
+
+

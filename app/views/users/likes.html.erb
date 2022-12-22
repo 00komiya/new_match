@@ -5,7 +5,9 @@
         <h3 class="text-black border-bottom border-white">いいね一覧</h3>
           <p>《いいねを外すとリストから削除されます》</p>
       </div>
-      <div>
-<% @like_items.each do |item|%>
-<%= render 'users/likes', item: item %>
-<% end %>
+      <% @like_items.each do |item|%>
+        <%= render 'likes', item: item %>
+      <% end %>
+    </div>
+  </div>
+</div>

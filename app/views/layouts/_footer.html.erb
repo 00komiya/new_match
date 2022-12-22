@@ -1,11 +1,10 @@
-<footer class="bg-info">
+<footer class="image_tag">
   <div class='"ontainer mt-5'>
     <div class="row">
       <div class="mx-auto pt-2">
-        <a>@DWC-PF-2022.10-</a>
-      </div>
-      <div>
-        <%= link_to "管理者ページ", new_admin_session_path, class: "btn btn-dark mr-2" %></div>
+        <a>@DWC-PF-202210</a>
+        <%= link_to new_admin_session_path do %>
+        <i class="fas fa-user-shield"></i><% end %>
     </div>
   </div>
 </footer>

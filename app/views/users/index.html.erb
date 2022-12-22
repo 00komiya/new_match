@@ -1,8 +1,9 @@
 <div class="container">
-  <div class="row m-2">
-    <div class="col-4 shadow-lg rounded" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+  <div class="row mt-5">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto box">
       <div class="text-center pt-2">
-        <h3 class="text-black border border-white">User一覧</h3>
+        <h3 class="text-black border-bottom border-white">会員一覧</h3>
+          <%= paginate @users %>
           <%= render 'index',users: @users %>
         </div>
       </div>

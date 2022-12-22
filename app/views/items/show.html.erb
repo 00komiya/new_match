@@ -1,27 +1,24 @@
 <div class="container-field">
   <div class="row mt-5">
-    <div class="ol-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded box">
+    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded box">
       <div class="text-center pt-2">
         <h3 class="text-black border-bottom border-white">商品情報詳細</h3>
       </div>
 
       <table class="table table-bordered">
-        <% if @item.user_id == current_user.id %>
         <tr class="table-borderless">
-          <td></td>
+          <td><%= link_to user_path(@item.user) do %>
+            <b><%= @item.user.name %></b>さん<% end %><%= @item.user.age %><%= @item.user.sex %></td>
+          <td class="text-right"><%= l @item.created_at %>
           <td class="text-right">
+          <% if @item.user_id == current_user.id %>
             <%= link_to "編集", edit_item_path(@item), class: "btn btn-success"%>
             <%= link_to "削除", @item, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger" %>
           </td>
         </tr>
         <% end %>
-        <tr class="table-borderless">
-          <td><%= link_to user_path(@item.user) do %>
-            <b><%= @item.user.name %></b>さん<% end %><%= @item.user.age %><%= @item.user.sex %></td>
-        <td class="text-right"><%= l @item.created_at %>
-        </tr>
-        <tr>
-          <td colspan="2"><%= image_tag @item.get_image, size:"50X50" %></td>
+        <tr class="text-center">
+          <td colspan="3"><%= image_tag @item.get_image, class: "image-post" %></td>
         </tr>
         <tr>
           <td>商品名</td>
@@ -36,7 +33,7 @@
         </tr>
         <tr class="border">
           <td>タグ</td>
-          <td><% @item.tags.each do |tag| %>
+          <td colspan="2"><% @item.tags.each do |tag| %>
             <span><%= link_to items_path(tag_id: tag.id) do %>#<%= tag.name %><% end %></span>
               <% if @item.user_id == current_user.id %>
                 <%= link_to item_item_tag_path(@item, tag.item_tags.find_by(item_id: @item.id)), method: :delete do %>
@@ -48,6 +45,10 @@
         </tr>
       </table>
 
+      <div class="text-right">
+        <div id="like_buttons_<%= @item.id %>">
+          <%= render 'likes/like', item: @item %></div>
+      </div>
       <div id="comments_index">
         <h6>コメント欄</h6>
         <%= render 'item_comments/index', item: @item %></div>
