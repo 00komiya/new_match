@@ -12,6 +12,7 @@
         <% if admin_signed_in? %>
           <li class="my-auto pr-5 mr-5 text-light">
             <b>管理者アカウント</b>でログインしています。</li>
+            <%= render 'searches/form' %>
           <li class="mx-4"><%= link_to "投稿一覧", admin_items_path, class: "btn btn-outline-light" %></li>
           <li class="mx-4"><%= link_to "会員一覧", admin_root_path, class: "btn btn-outline-light" %></li>
           <li class="mx-4"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light" %></li>

@@ -8,7 +8,7 @@ class SearchesController < ApplicationController
     if @model == 'item'
       @records = Item.search_for(@content, @method).page(params[:page])
     elsif @model == 'user'
-      @records = User.search_for(@content, @method)
+      @records = User.search_for(@content, @method).page(params[:page]).per(10)
     elsif @model == 'tag'
       @records = Item.left_joins(:tags).where(tags: {id: @content})
       @content = Tag.find(@content).name

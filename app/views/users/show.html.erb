@@ -1,18 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-4" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+<div class="container-field">
+  <div class="row mt-5 offset-2">
+    <div class="col-lg-5 box2">
       <div class="text-center pt-2">
-        <h3 class="text-black border border-white"><%= @user.name %>さんのプロフィール</h3></div>
+        <h3 class="text-black border-bottom border-white"><%= @user.name %>さんのプロフィール</h3></div>
         <%= render 'users/info', user: @user %>
   　</div>
-    <div class="col-md-7 offset-md-1" style="background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);">
+    <div class="col-lg-5 box">
       <div class="text-center pt-2">
-        <h3 class="text-black border border-white"><%= @user.name %>さんの投稿一覧</h3></div>
+        <h3 class="text-black border-bottom border-white"><%= @user.name %>さんの投稿一覧</h3></div>
           <div>
             <% if @items.present? %>
               <%= paginate @items %>
-              <%= link_to '新しい順', user_path(current_user.id,latest: "true") %>|
-              <%= link_to '古い順', user_path(current_user.id,old: "true") %>
+              <%= link_to '新しい順', user_path(@user.id,latest: "true") %>|
+              <%= link_to '古い順', user_path(@user.id,old: "true") %>
             <% end %>
           </div>
           <%= render 'items/index',items: @items %>

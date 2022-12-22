@@ -11,9 +11,9 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= render 'searches/form' %>
-    <p id="notice"><%= notice %></p>
-
+    <div class="text-center"><%= render 'searches/form' %></div>
+    <div class="text-center alert-success"><%= flash[:notice] %></div>
+    <div class="text-center alert-danger"><%= flash[:alert] %></div>
     <main>
       <%= yield %>
     </main>

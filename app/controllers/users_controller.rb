@@ -29,7 +29,7 @@ class UsersController < ApplicationController
    def update
     @user = User.find(params[:id])
    if @user.update(user_params)
-    redirect_to user_path(@user) , flash: {success: "更新が完了しました"}
+    redirect_to user_path(@user) , notice: "更新が完了しました。"
    else
      render :edit , alert: "編集の保存に失敗しました。"
    end

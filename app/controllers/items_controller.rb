@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
       @item.save_tags(tag_list)
       redirect_to items_path, notice: "投稿に成功しました"
     else
-      render :new, notice: "投稿に失敗しました"
+      render :new, alert: "投稿に失敗しました"
     end
   end
 
@@ -61,7 +61,7 @@ class ItemsController < ApplicationController
       @item.save_tags(tag_list)
       redirect_to item_path(@item), notice: "編集が保存されました"
     else
-      render :edit, notice: "編集に失敗しました"
+      render :edit, alert: "編集に失敗しました"
     end
   end
 

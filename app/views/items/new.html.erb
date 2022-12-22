@@ -1,5 +1,4 @@
 <div class="container">
-  <%= render 'layouts/errors', obj: @item %>
   <div class="row mt-5">
     <h6 class="text-center">//参考タグリスト//</h6>
      <div><%= render 'searches/tag_list',tags: @tags %></div>
@@ -9,6 +8,7 @@
       <div class="text-center pt-2">
         <h3 class="text-black border-bottom border-white">新規投稿</h3>
       </div>
+      <%= render 'layouts/errors', obj: @item %>
       <%= render 'form', item: @item %>
       </div>
     </div>
