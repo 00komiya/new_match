@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
+  before_action :ensure_guest_user, only: [:new, :create, :edit, :update]
 
   def new
     @item = Item.new
@@ -13,9 +15,9 @@ class ItemsController < ApplicationController
     tag_list = params[:item][:tag_name].split(',')
     if @item.save
       @item.save_tags(tag_list)
-      redirect_to items_path, notice: "投稿に成功しました"
+      redirect_to items_path, notice: "投稿に成功しました。"
     else
-      render :new, alert: "投稿に失敗しました"
+      render :new, alert: "投稿に失敗しました。"
     end
   end
 
@@ -27,7 +29,9 @@ class ItemsController < ApplicationController
       @items = @items.where(tags: {id: params[:tag_id]})
     end
 
-    # 検索結果からページネーションと並び替えを行う
+    #users = User.where.(is_deleted: false)
+    #@items = []
+    #users.each do |user|
     if params[:latest]
       @items = @items.latest.page(params[:page])
     elsif params[:old]
@@ -35,6 +39,7 @@ class ItemsController < ApplicationController
     else
       @items = @items.order("created_at DESC").page(params[:page])
     end
+  #end
   end
 
   def show
@@ -44,31 +49,21 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @tags = Tag.all
-    @item = Item.find(params[:id])
-    if @item.user == current_user
-      render :edit
-    else
-      redirect_to items_path
-    end
   end
 
   def update
-    @tags = Tag.all
-    @item = Item.find(params[:id])
     tag_list = params[:item][:tag_name].split(',')
     if@item.update(item_params)
       @item.save_tags(tag_list)
-      redirect_to item_path(@item), notice: "編集が保存されました"
+      redirect_to item_path(@item), notice: "編集が保存されました。"
     else
-      render :edit, alert: "編集に失敗しました"
+      render :edit
     end
   end
 
   def destroy
-    @item = Item.find(params[:id])
     @item.destroy
-    redirect_to items_path, notice: "投稿を削除しました"
+    redirect_to items_path, notice: "投稿を削除しました。"
   end
 
 
@@ -76,6 +71,20 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :name, :shop_name, :introduction)
+  end
+
+  def ensure_correct_user
+    @tags = Tag.all
+    @item = Item.find(params[:id])
+    unless @item.user == current_user
+      redirect_to items_path
+    end
+  end
+
+  def ensure_guest_user
+    if current_user.name == "guestuser"
+      redirect_to user_path(current_user) , notice: "ゲストユーザーです。投稿するには本登録をお願いします。"
+    end
   end
 
 end

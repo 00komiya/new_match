@@ -1,14 +1,15 @@
 <div class = "container">
   <div class="row" >
     <div class="col text-center mt-5 pt-5">
-      <h1>本当に退会しますか？</h1><br>
-
-
-      <p>これまでの登録した情報が全て削除されます。</p>
-      <p>退会する場合は、　「退会する」　をクリックしてください。</p>
-
-      <%= link_to "考え直す", user_path(@user), class: 'btn btn-primary mt-5' %>
-      <%= link_to "退会する", users_out_path, method: :patch, class: 'btn btn-danger mt-5' %>
+      <% if current_user.name == "guestuser" %>
+        <h3>ゲストユーザーは退会することは出来ません。</h3>
+      <% else %>
+        <h1>本当に退会しますか？</h1><br>
+          <p>これまでの登録した情報が全て削除されます。</p>
+          <p>退会する場合は、　「退会する」　をクリックしてください。</p>
+          <%= link_to "考え直す", user_path(@user), class: 'btn btn-primary mt-5' %>
+          <%= link_to "退会する", users_out_path, method: :patch, class: 'btn btn-danger mt-5' %>
+      <% end %>
     </div>
   </div>
 </div>

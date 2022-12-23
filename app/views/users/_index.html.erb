@@ -1,11 +1,9 @@
 <% users.each do |user| %>
-  <% if user.is_deleted == false %>
-    <table class="table">
-      <tr class="border">
-        <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
-        <td><%= user.name %></td><br>
-        <td><%= link_to '詳細', user %></td>
-      </tr>
-    </table>
-  <% end %>
+  <table class="table">
+    <tr class="border">
+      <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
+      <td><%= user.name %></td><br>
+      <td><%= link_to '詳細', user %></td>
+    </tr>
+  </table>
 <% end %>
