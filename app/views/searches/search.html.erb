@@ -3,11 +3,11 @@
     <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded box">
       <div class="text-center pt-2">
         <% if @model == 'item' || @model == 'tag' %>
-          <h3 class="text-black border border-white">検索ワード"<%= @content %>"</h3>
+          <h3 class="text-black border-bottom border-white">検索ワード"<%= @content %>"</h3>
       </div>
       <%= render 'items/index', items: @records %>
         <% else @model == 'user' %>
-          <h3 class="text-black border border-white">検索ワード "<%= @content %>"</h3>
+          <h3 class="="text-black border-bottom border-white">検索ワード "<%= @content %>"</h3>
       </div>
       <%= render 'users/index', users: @records %>
         <% end %>

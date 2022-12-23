@@ -27,6 +27,7 @@ table {
 
 th,td {
   white-space: nowrap;
+  word-wrap: break-word;
 }
 
 .box {
@@ -49,4 +50,10 @@ th,td {
 
 .navbar-toggler {
   border-color: #ffffff;
+}
+
+.about-img {
+  background-position: center center;
+  width: 400px;
+  height: 250px;
 }
