@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @item_comments = ItemComment.eager_load(:user).where('users.is_deleted = ?', false)
     @item_comment = ItemComment.new
     @tags = Tag.all
   end

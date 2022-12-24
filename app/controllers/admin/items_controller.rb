@@ -3,6 +3,7 @@ class Admin::ItemsController < ApplicationController
 
   def index
     @items = Item.all.page(params[:page]).per(10)
+    @tags = Tag.all
   end
 
   def show

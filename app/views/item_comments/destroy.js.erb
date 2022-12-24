@@ -1,2 +1,2 @@
-$('#comments_index').html("<%= j(render "item_comments/index", item: @item) %>");
-$('#comments_form').html("<%= j(render "item_comments/form",  item: @item, item_comment: @item_comment) %>");
+$('#comments_index').html("<%= j(render "item_comments/index", item_comments: @item_comments) %>");
+$('#comments_form').html("<%= j(render "item_comments/form",  item: @item_comment.item, item_comment: @item_comment) %>");

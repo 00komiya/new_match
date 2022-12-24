@@ -1,8 +1,13 @@
 <div class="container">
   <div class="row">
-    <div class="col-8 offset-2">
+    <div class="col-4">
+      <h3>タグ一覧</h3>
+      <%= render 'admin/tags/index',tags: @tags %>
+    </div>
+    <div class="col-8">
       <h3>投稿一覧</h3>
       <%= render 'index',items: @items %>
+    </div>
     </div>
   </div>
 </div>

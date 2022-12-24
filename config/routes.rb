@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :edit, :update]
     resources :items, only: [:index, :show, :destroy]
     resources :item_comments, only: [:destroy]
+    resources :tags, only: [:destroy]
   end
 
 

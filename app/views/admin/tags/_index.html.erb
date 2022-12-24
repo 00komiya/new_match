@@ -1,0 +1,16 @@
+<table class="table table-dark table-sm">
+  <thead>
+    <th>タグID</th>
+    <th>タグ名</th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% tags.each do |tag| %>
+      <tr>
+        <td><%= tag.id%></td>
+        <td><%= tag.name%></td>
+        <td><%= link_to "削除", admin_tag_path(tag), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger rounded-pill ml-2" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
