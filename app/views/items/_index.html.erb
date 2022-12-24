@@ -10,15 +10,15 @@
   <tr>
     <td>商品名:<%= item.name %></td>
   </tr>
-  <tr>
-    <td class="table-borderless"><div id="like_buttons_<%= item.id %>">
+  <tr class="table-borderless">
+    <td><div id="like_buttons_<%= item.id %>">
       <%= render 'likes/like', item: item %></div>コメント件数：<%= item.item_comments.count %><br></td>
   </tr>
-  <tr>
+  <tr class="table-borderless">
     <td>タグ:<% item.tags.each do |tag| %>
              <%= tag.name %><% end %>
   </tr>
-  <tr>
+  <tr class="table-borderless">
     <td><%= link_to "詳細を確認", item_path(item), class: "btn btn-primary" %></td>
   </tr>
 </table>

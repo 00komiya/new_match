@@ -9,7 +9,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body class="pb-5">
     <%= render 'layouts/header' %>
     <div class="text-center m-4 pt-5"><%= render 'searches/form' %></div>
     <div class="text-center alert-success"><%= flash[:notice] %></div>
@@ -17,6 +17,7 @@
     <main>
       <%= yield %>
     </main>
+    <!--<br/>-->
     <%= render 'layouts/footer' %>
   </body>
 </html>

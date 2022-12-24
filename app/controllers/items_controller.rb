@@ -30,8 +30,6 @@ class ItemsController < ApplicationController
       @items = @items.where(tags: {id: params[:tag_id]})
     end
 
-    # users = User.where(is_deleted: false)
-    # users.each do |user|
     if params[:latest]
       @items = @items.latest.page(params[:page])
     elsif params[:old]
@@ -39,7 +37,6 @@ class ItemsController < ApplicationController
     else
       @items = @items.order(created_at: "DESC").page(params[:page])
     end
-    # end
   end
 
   def show
