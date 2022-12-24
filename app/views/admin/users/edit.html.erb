@@ -11,7 +11,7 @@
           <%= f.label :is_deleted, "退会", value: true %>
         </div>
         <div class="text-right">
-          <%= f.submit "変更を保存", class: "btn btn-success rounded-pill" %>
+          <%= f.submit "変更を保存", data: { confirm: '本当に変更しますか？' }, class: "btn btn-success rounded-pill" %>
         </div>
       <% end %>
     </div>
