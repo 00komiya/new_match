@@ -24,22 +24,22 @@ class ItemsController < ApplicationController
   def index
     @tags = Tag.all
     # tag_idに値が入っていたらtag_idで検索する
-    @items = Item.left_joins(:tags).all.distinct
+    items = Item.eager_load(:user).left_joins(:tags).all.distinct
+    @items = items.where('users.is_deleted = ?', false)
     if params[:tag_id].present?
       @items = @items.where(tags: {id: params[:tag_id]})
     end
 
-    #users = User.where.(is_deleted: false)
-    #@items = []
-    #users.each do |user|
+    # users = User.where(is_deleted: false)
+    # users.each do |user|
     if params[:latest]
       @items = @items.latest.page(params[:page])
     elsif params[:old]
       @items = @items.old.page(params[:page])
     else
-      @items = @items.order("created_at DESC").page(params[:page])
+      @items = @items.order(created_at: "DESC").page(params[:page])
     end
-  #end
+    # end
   end
 
   def show
