@@ -1,6 +1,6 @@
 <% items.each do |item| %>
-<table class="table text-center">
-  <tr>
+<table class="table text-center table-borderless">
+  <tr class="border-top">
     <td>
       <%= link_to item_path(item) do %>
         <%= image_tag item.get_image, class: "image-post" %>
@@ -10,15 +10,15 @@
   <tr>
     <td>商品名:<%= item.name %></td>
   </tr>
-  <tr class="table-borderless">
+  <tr>
     <td><div id="like_buttons_<%= item.id %>">
-      <%= render 'likes/like', item: item %></div>コメント件数：<%= item.item_comments.count %><br></td>
+      <%= render 'likes/like', item: item %></div></td>
   </tr>
-  <tr class="table-borderless">
+  <tr>
     <td>タグ:<% item.tags.each do |tag| %>
              <%= tag.name %><% end %>
   </tr>
-  <tr class="table-borderless">
+  <tr>
     <td><%= link_to "詳細を確認", item_path(item), class: "btn btn-primary" %></td>
   </tr>
 </table>

@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg fixed-top bg-in">
+  <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container ">
       <%= link_to root_path do %>
         <%= image_tag 'logo.jpg', size: "150x50" %>
@@ -10,14 +10,14 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
-          <li class="my-auto pr-5 mr-5t">
+          <li class="my-auto pr-5 mr-5t text-light">
             <b>管理者アカウント</b>でログインしています。</li>
-          <li class="mx-4"><%= link_to "投稿一覧", admin_items_path, class: "btn btn-outline-info" %></li>
-          <li class="mx-4"><%= link_to "会員一覧", admin_root_path, class: "btn btn-outline-info" %></li>
-          <li class="mx-4"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-info" %></li>
+          <li class="mx-4"><%= link_to "投稿一覧", admin_items_path, class: "btn btn-outline-info text-light" %></li>
+          <li class="mx-4"><%= link_to "会員一覧", admin_root_path, class: "btn btn-outline-info text-light" %></li>
+          <li class="mx-4"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-info text-light" %></li>
 
         <% elsif user_signed_in? %>
-          <li class="my-auto pr-5 mr-5">
+          <li class="my-auto pr-5 mr-5 text-light">
             ようこそ、<%= current_user.name %>さん！</li>
           <li>
             <% if unchecked_notifications.any? %>
@@ -29,11 +29,11 @@
             <% end %>
           </li>
           <li>
-            <%= link_to new_item_path, class: 'nav-link' do %>
+            <%= link_to new_item_path, class: 'nav-link text-light' do %>
               <i class="fas fa-pencil-ruler"></i> 投稿する
             <% end %></li>
           <li>
-            <%= link_to items_path, class: 'nav-link' do %>
+            <%= link_to items_path, class: 'nav-link text-light' do %>
               <i class="far fa-eye"></i> 新商品チェック
             <% end %></li>
           <li class="nav-item dropdown">

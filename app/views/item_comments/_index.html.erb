@@ -1,19 +1,20 @@
-<table>
+<table class="table bg-white">
   <tbody>
     <% item_comments.each do |item_comment| %>
-    <tr>
-      <td>
+    <tr class="border-top">
+      <td colspan="2">
         <%= link_to user_path(item_comment.user) do %>
-          <%= image_tag item_comment.user.get_profile_image, size: "50x50" %><br>
-          <%= item_comment.user.name %>さん
+          by <%= item_comment.user.name %>さん
         <% end %>
       </td>
-      <td><%= item_comment.comment %></td>
-      <td>
-        <% if item_comment.user == current_user %>
-          <%= link_to "削除", item_item_comment_path(item_comment.item, item_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
-        <% end %>
+      <% if item_comment.user == current_user %>
+      <td class="text-right">
+        <%= link_to "削除", item_item_comment_path(item_comment.item, item_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
       </td>
+      <% end %>
+    </tr>
+    <tr class="table-borderless">
+      <td colspan="3"><%= item_comment.comment %></td>
     </tr>
     <% end %>
   </tbody>

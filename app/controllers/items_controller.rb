@@ -84,5 +84,4 @@ class ItemsController < ApplicationController
       redirect_to user_path(current_user) , notice: "ゲストユーザーです。投稿するには本登録をお願いします。"
     end
   end
-
 end
