@@ -44,19 +44,16 @@ th {
 }
 
 .info {
-  color: #ff0000;
+  color: #fffacd;
   -webkit-text-stroke: 1px #FFF;
   text-stroke: 1px #FFF;
-  background-image: linear-gradient(to right, #6a11cb 0%, #2575fc 100%);;
-}
+  font-size: 30px;
+  font-family: "serif";
+background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);}
 
 .navbar-toggler {
   background-color: #e6e6fa;
   border-color: #000000;
-}
-
-.navbar-toggler-icon {
-  color: #000000;
 }
 
 top {

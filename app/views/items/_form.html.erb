@@ -21,13 +21,14 @@
       <div class="input-group-prepend">
         <span class="input-group-text" aria-hidden="true"><i class="fas fa-pencil-alt"></i></span>
       </div>
-        <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"商品紹介：情報や感想をコチラへ" %>
+        <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"商品の情報や感想をコチラへ" %>
   </div>
+  <div>タグは必須ではありません</div>
   <div class="input-group mb-3 mt-4">
     <div class="input-group-prepend">
       <span class="input-group-text" aria-hidden="true"><i class="fas fa-tag"></i></span>
     </div>
-      <%= f.text_field :tag_name, class:"form-control", placeholder:" ,で複数タグ付け" %>
+      <%= f.text_field :tag_name, class:"form-control", placeholder:" ,で複数つけられます。例:スイーツ,コラボ" %>
   </div>
   <div class="form-group text-right">
     <% if f.object.new_record? %>

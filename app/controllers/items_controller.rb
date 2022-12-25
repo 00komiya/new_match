@@ -1,7 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update, :destroy]
-  before_action :ensure_guest_user, only: [:new, :create, :edit, :update]
 
   def new
     @item = Item.new
@@ -79,9 +78,4 @@ class ItemsController < ApplicationController
     end
   end
 
-  def ensure_guest_user
-    if current_user.name == "guestuser"
-      redirect_to user_path(current_user) , notice: "ゲストユーザーです。投稿するには本登録をお願いします。"
-    end
-  end
 end
