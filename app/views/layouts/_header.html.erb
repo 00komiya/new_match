@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-lg fixed-top">
+  <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #334d80;">
     <div class="container ">
       <%= link_to root_path do %>
         <%= image_tag 'logo.jpg', size: "150x50" %>
@@ -41,7 +41,6 @@
               メニュー</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <%= link_to "ホーム", root_path, class: 'dropdown-item' %></a>
-                <%= link_to "サイトについて", about_path, class: 'dropdown-item' %></a>
                 <%= link_to "マイページ", user_path(current_user.id), class: 'dropdown-item' %></a>
                 <%= link_to "いいねリスト", likes_user_path(current_user.id), class: 'dropdown-item' %></a>
                 <%= link_to "会員一覧", users_path, class: 'dropdown-item' %></a>
@@ -53,15 +52,6 @@
           <li>
            <%= link_to users_guest_sign_in_path, class: "btn btn-outline-dark text-white", method: :post do %>
               <i class="fas fa-walking"></i><i class="fas fa-sign-in-alt"></i> ゲストログイン（閲覧用）
-            <% end %></li>
-          <li>
-          <li>
-            <%= link_to about_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-link"></i> アバウト
-            <% end %></li>
-          <li>
-            <%= link_to root_path, class: 'nav-link text-light' do %>
-              <i class="fas fa-home"></i> ホーム
             <% end %></li>
           <li>
             <%= link_to new_user_registration_path, class: 'nav-link text-light' do %>
