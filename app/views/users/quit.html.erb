@@ -5,7 +5,7 @@
         <h3>ゲストユーザーは退会することは出来ません。</h3>
       <% else %>
         <h1>本当に退会しますか？</h1><br>
-          <p>これまでの登録した情報が全て削除されます。</p>
+          <p>これまでに登録した情報が削除されます。</p>
           <p>退会する場合は、　「退会する」　をクリックしてください。</p>
           <%= link_to "考え直す", user_path(@user), class: 'btn btn-primary m-3' %>
           <%= link_to "退会する", users_out_path, method: :patch, class: 'btn btn-danger m-3' %>

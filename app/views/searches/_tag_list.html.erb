@@ -1,7 +1,8 @@
 <% tags.each do |tag| %>
-<div class="btn btn-outline-secondary">
-  <%= link_to search_path(model: "tag", method: "perfect", content: tag.id) do %>
-    <%= tag.name %>
-    <%="(#{tag.items.count})" %>
-  <% end %></div>
+  <div class="btn btn-outline-secondary">
+    <%= link_to search_path(model: "tag", method: "perfect", content: tag.id) do %>
+      <%= tag.name %>
+      <%="(#{tag.items.count})" %>
+    <% end %>
+  </div>
 <% end %>

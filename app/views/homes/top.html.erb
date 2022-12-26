@@ -4,10 +4,46 @@
     <section class="animations">
       <div class="info mt-5 pt-2 pb-2 text-center">
         <p class="text-center"><i class="fas fa-running"></i><i class="fas fa-door-open"></i> いらっしゃいませ</p>
-        <p>ここはコンビニ新商品好きが集まったコミュニティサイトです。<p>
-        <p>新商品を紹介し合って自分好みの商品と MATCH しましょう！！<p>
+        <p>【new_match】はコンビニ新商品好きが集まったコミュニティサイトです<p>
+        <p>新商品を紹介し合って自分好みの商品とMATCHさせましょう！！！<p>
       </div>
-    </section>
+      </section>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 col-md-12 col-lg-6">
+      <div id="sample1" class="carousel slide" data-ride="carousel" data-interval="2500" data-wrap="true" data-pause="false" style = "width: 500px">
+        <div class="carousel-inner">
+          <div class="carousel-item">
+            <img src="<%= asset_path('nikuman.jpg') %>" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="<%= asset_path('oden.jpg') %>" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="<%= asset_path('bento.jpg') %>" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="<%= asset_path('make.jpg') %>" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-12 col-lg-6 box">
+      <h2 class="pt-2">ご利用タイミング</h2>
+       <ul class="p-3">
+         <li>新商品を試した時の記録用に</li>
+         <li>新商品に対しての感想を求める時</li>
+         <li><%= link_to new_item_path do%>
+         <i class="fas fa-hand-point-right"></i>投稿する<% end %></li>
+       </ul>
+          <ul class="p-3">
+          <li>新商品をチェックしたい時</li>
+          <li>他の人と語り合いたい時</li>
+          <li>気になった商品をリスト化したい時</li>
+          <li><%= link_to items_path do%>
+          <i class="fas fa-hand-point-right"></i>投稿一覧へ<% end %></li>
+        </ul>
     </div>
   </div>
 </div>

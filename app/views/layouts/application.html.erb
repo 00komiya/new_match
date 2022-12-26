@@ -8,14 +8,19 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.4/css/all.css">
   </head>
   <body class="pb-5">
     <%= render 'layouts/header' %>
-    <div class="mt-5 ml-3 pt-5"><%= render 'searches/form' %></div>
+    <div class="mt-5 ml-2 pt-5 "><%= render 'searches/form' %></div>
     <div class="text-center alert-success"><%= flash[:notice] %></div>
     <div class="text-center alert-danger"><%= flash[:alert] %></div>
     <main>
       <%= yield %>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <!--<script src="javascript/pagetop.js"></script>-->
+        <!-- ページトップへ戻るボタン -->
+        <div id="page_top"><a href="#"></a></div>
     </main>
     <%= render 'layouts/footer' %>
   </body>
