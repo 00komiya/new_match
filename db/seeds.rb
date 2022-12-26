@@ -19,15 +19,26 @@ users = User.create!(
       name: '田中',
       password:'tanakatanaka',
       introduction: 'よろしくお願いします',
-      age: '20',
+      age: '20代',
       sex: '男',
       address: '東京',
-      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/pasta.jpg"), filename:"open.jpg")},
+      profile_image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/oniku.jpg"), filename:"open.jpg")},
+    {
+      email: 'satou@test.com',
+      name: '佐藤',
+      password:'satousatou',
+      address: '北海道',
+      introduction: 'スイーツ大好き！絡んでください'},
     {
       email: 'hanako@test.com',
       name: 'はなこ',
       password:'hanakohanako',
-      introduction: 'スイーツ大好き！絡んでください',}
+      introduction: 'コンビニコスメチェックしてます'},
+    {
+      email: 'saori@test.com',
+      name: 'さおり',
+      password:'saorisaori',
+      introduction: 'コラボ品が好きです。',}
   ]
 )
 
@@ -36,17 +47,40 @@ items = Item.create(
     {
       name: 'カルボナーラ',
       shop_name: 'セブンイレブン',
-      introduction: '温玉が二つになって新登場!!',
+      introduction: '温玉が二つになって新登場。マジで濃厚でした。',
       user_id: users[0].id ,
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/pasta.jpg"), filename: 'default-image.jpg')},
     {
       name: 'マリトッツォ',
-      shop_name: 'ローソン',
-      introduction: 'コラボ品！食べた人感想教えてください！',
+      shop_name: 'ファミリーマート',
+      introduction: 'オレンジ風味？食べた人感想教えてください！',
       user_id: users[1].id ,
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/sweets.jpg"), filename: 'default-image.jpg')},
+    {
+      name: 'GODIVAマカロン',
+      shop_name: 'ローソン',
+      introduction: 'あまりの美味さに写真とるの忘れました(笑)',
+      user_id: users[1].id },
+    {
+      name: 'セラムオイルリップスティック',
+      shop_name: 'ファミリーマート',
+      introduction: '口紅の発色最高でした。おすすめです！',
+      user_id: users[2].id },
+    {
+      name: '鮭おにぎり',
+      shop_name: 'セブンイレブン',
+      introduction: 'お米がさらに美味しくなって新登場しました。',
+      user_id: users[1].id ,
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/onigiri.jpg"), filename: 'default-image.jpg')},
+    {
+      name: 'ニュータンタンメンt',
+      shop_name: 'ローソン',
+      introduction: 'お店の味が再現できてて、めちゃくちゃ美味しいです',
+      user_id: users[3].id ,
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/sweets.jpg"), filename: 'default-image.jpg')}
   ]
 )
+
 
   Tag.create(name: "お弁当")
   Tag.create(name: "おにぎり")
