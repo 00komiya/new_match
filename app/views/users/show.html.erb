@@ -1,5 +1,8 @@
 <div class="container-field">
   <div class="row mt-5">
+    <% if @user.is_deleted? %>
+      <div class="col-8 offset-2 text-center box">このユーザーは退会済みです</div>
+    <% else %>
     <div class="col-lg-5 m-3 box">
       <div class="text-center pt-2">
         <h3 class="text-black border-bottom border-white"><%= @user.name %>さんのプロフィール</h3></div>
@@ -17,5 +20,6 @@
           <%= render 'items/index',items: @items %>
           <%= paginate @items %>
     </div>
+    <% end %>
   </div>
 </div>
