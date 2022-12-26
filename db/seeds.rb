@@ -43,7 +43,7 @@ items = Item.create(
       name: 'マリトッツォ',
       shop_name: 'ローソン',
       introduction: 'コラボ品！食べた人感想教えてください！',
-       user_id: users[1].id ,
+      user_id: users[1].id ,
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/sweets.jpg"), filename: 'default-image.jpg')}
   ]
 )
