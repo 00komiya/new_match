@@ -63,7 +63,7 @@ top {
 }
 .animations{
   animation-name: animations;
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-timing-function: ease;
   animation-delay: 0.5s;
   animation-iteration-count: 1;
@@ -84,7 +84,7 @@ top {
   width: 90px;
   height: 90px;
   position: fixed;
-  right: 0;
+  right: 30px;
   bottom: 0;
   background: #ef3f98;
   opacity: 0.6;

@@ -17,10 +17,8 @@
     <div class="text-center alert-danger"><%= flash[:alert] %></div>
     <main>
       <%= yield %>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <!--<script src="javascript/pagetop.js"></script>-->
-        <!-- ページトップへ戻るボタン -->
-        <div id="page_top"><a href="#"></a></div>
+      <!-- ページトップへ戻るボタン -->
+      <div id="page_top"><a href="#"></a></div>
     </main>
     <%= render 'layouts/footer' %>
   </body>
