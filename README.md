@@ -1,4 +1,4 @@
-# new_matti
+# new_match
 
 ## サイト概要
 ### サイトテーマ
@@ -33,5 +33,4 @@
 - IDE：Cloud9
 
 ## 使用素材
-https://unsplash.com/ja<br>
-https://www.photo-ac.com/
+・フリー画像photAC  https://www.photo-ac.com/

@@ -73,11 +73,11 @@ items = Item.create(
       user_id: users[1].id ,
       image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/onigiri.jpg"), filename: 'default-image.jpg')},
     {
-      name: 'ニュータンタンメンt',
+      name: 'ニュータンタンメン',
       shop_name: 'ローソン',
       introduction: 'お店の味が再現できてて、めちゃくちゃ美味しいです',
       user_id: users[3].id ,
-      image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/sweets.jpg"), filename: 'default-image.jpg')}
+      image: ActiveStorage::Blob.create_and_upload!(io: File.open("app/assets/images/men.jpg"), filename: 'default-image.jpg')}
   ]
 )
 
