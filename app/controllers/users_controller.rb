@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :ensure_correct_user, only: [:edit, :update]
-  before_action :ensure_guest_user, only: [:edit, :update,]
+  before_action :ensure_guest_user, only: [:edit, :update]
 
   def index
     @users = User.where(is_deleted: false).page(params[:page]).per(10)
@@ -18,8 +18,6 @@ class UsersController < ApplicationController
     end
   end
 
-  # def edit
-  # end
   def update
     if @user.update(user_params)
       redirect_to user_path(@user) , notice: "更新が完了しました。"

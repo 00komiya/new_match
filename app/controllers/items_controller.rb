@@ -45,9 +45,6 @@ class ItemsController < ApplicationController
     @tags = Tag.all
   end
 
-  def edit
-  end
-
   def update
     tag_list = params[:item][:tag_name].split(',')
     if@item.update(item_params)

@@ -4,8 +4,6 @@ class NotificationsController < ApplicationController
     @notifications.where(checked: false).each do | notification |
       notification.update_attribute(:checked, true)
     end
-    p "-----"
-    p @notifications
   end
 
   def destroy
