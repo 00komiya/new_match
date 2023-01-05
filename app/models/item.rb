@@ -25,9 +25,9 @@ class Item < ApplicationRecord
 
   def self.search_for(content, method)
     if method == "perfect"
-      Item.where("name = ? OR introduction = ?", content, content)
+      Item.where("name = ? OR shop_name = ?", content, content)
     else
-      Item.where('name LIKE ? OR introduction LIKE ? ', '%'+content+'%','%'+content+'%')
+      Item.where('name LIKE ? OR shop_name LIKE ? ', '%'+content+'%','%'+content+'%')
     end
   end
 
