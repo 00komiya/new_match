@@ -17,6 +17,9 @@
 body {
   background: linear-gradient( 130deg, rgba(250, 112, 154, 0.6), rgba(254, 225, 64, 0.6)),
   image-url("CV_2.jpg");
+  min-height: 100vh;
+  background-attachment: fixed;
   background-size: cover;
+  background-position: center;
 }
 
