@@ -49,7 +49,7 @@
 
       <div class="text-right">
         <div id="like_buttons_<%= @item.id %>">
-          <%= render 'likes/like', item: @item %></div>
+          <%= render 'likes/btn', item: @item %></div>
       </div>
       <div id="comments_index">
         <h5>コメント：<%= @item.item_comments.count %> 件</h5>
