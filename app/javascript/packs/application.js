@@ -14,6 +14,7 @@ import "bootstrap";
 import "../stylesheets/application"
 import "@fortawesome/fontawesome-free/js/all"
 import "main.js"
+import "navbar.js.js"
 
 Rails.start()
 Turbolinks.start()
