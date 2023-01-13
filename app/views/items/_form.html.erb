@@ -1,34 +1,24 @@
+<div>*は入力必須です</div>
 <%= form_with model:item do |f| %>
-  <div class="input-group mb-3 mt-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" aria-hidden="true"><i class="fas fa-camera"></i></span>
-      <%= f.file_field :image, accept: "image/*", class: "w-100" %>
-    </div>
+  <div class="form-group mb-3 mt-4">
+    <%= f.label :image, "投稿画像" %>
+    <%= f.file_field :image, accept: "image/*", class: "w-100" %>
   </div>
-  <div class="input-group mb-3 mt-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" aria-hidden="true"><i class="fas fa-barcode"></i></span>
-    </div>
-      <%= f.text_field :name, class: "form-control", placeholder:" 商品名" %>
+  <div class="form-group mb-3 mt-4">
+    <%= f.label :name, "商品名 *" %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="input-group mb-3 mt-4">
-      <div class="input-group-prepend">
-        <span class="input-group-text" aria-hidden="true"><i class="fas fa-store"></i></span>
-      </div>
-        <%= f.text_field :shop_name, class:"form-control", placeholder:"コンビニ名" %>
+  <div class="form-group mb-3 mt-4">
+    <%= f.label :shop_name, "コンビニ名 *" %>
+    <%= f.text_field :shop_name, class:"form-control" %>
   </div>
-  <div class="input-group mb-3 mt-4">
-      <div class="input-group-prepend">
-        <span class="input-group-text" aria-hidden="true"><i class="fas fa-pencil-alt"></i></span>
-      </div>
-        <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"商品の情報や感想をコチラへ" %>
+  <div class="form-group mb-3 mt-4">
+    <%= f.label :introduction, "商品紹介文 *" %>
+    <%= f.text_area :introduction, class:"form-control", rows:"3", placeholder:"商品の紹介や感想をコチラへ" %>
   </div>
-  <div>*タグは必須ではありません</div>
-  <div class="input-group mb-3 mt-4">
-    <div class="input-group-prepend">
-      <span class="input-group-text" aria-hidden="true"><i class="fas fa-tag"></i></span>
-    </div>
-      <%= f.text_field :tag_name, class:"form-control", placeholder:" ,で複数つけられます。例:スイーツ,コラボ" %>
+  <div class="form-group mb-3 mt-4">
+    <%= f.label :tag_name, "タグ(,で複数登録できます)" %>
+    <%= f.text_field :tag_name, class:"form-control", placeholder:"例:スイーツ,コラボ" %>
   </div>
   <div class="form-group text-center">
     <% if f.object.new_record? %>
