@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-lg-5 m-3 taglist">
+    <div class="col-lg-4 m-3 p-3 taglist">
       <div class="text-center pt-2">
         <h3 class="text-black border-bottom border-white">
           <i class="fas fa-tag"></i>タグリスト (件数)</h3>
       </div>
       <%= render 'searches/tag_list',tags: @tags,user: @user%>
     </div>
-      <div class="col-lg-5 m-3 box">
-        <div class="text-center pt-2">
-          <h3 class="text-black border-bottom border-white">投稿一覧</h3>
-        </div>
-        <div>
-          <% if @items.present? %>
-            <%= link_to '新しい順', items_path(latest: "true") %>|
-            <%= link_to '古い順', items_path(old: "true") %>
-          <% end %>
-        </div>
-        <%= render 'index', items: @items %>
-        <%= paginate @items %>
+    <div class="col-lg-6 m-3 p-3 box">
+      <div class="text-center pt-2">
+        <h3 class="text-black border-bottom border-white">投稿一覧</h3>
       </div>
+      <div>
+        <% if @items.present? %>
+          <%= link_to '新しい順', items_path(latest: "true") %>|
+          <%= link_to '古い順', items_path(old: "true") %>
+        <% end %>
+      </div>
+      <%= render 'index', items: @items %>
+      <%= paginate @items %>
+    </div>
   </div>
 </div>

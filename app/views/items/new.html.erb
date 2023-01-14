@@ -1,16 +1,18 @@
 <div class="container">
-  <div class="row mt-5 taglist">
-    <h6 class="text-center"><i class="fas fa-tag"></i>参考タグリスト</h6>
-     <div><%= render 'searches/tag_list',tags: @tags %></div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded box">
+  <div class="row mt-5">
+    <div class="col-lg-3 m-3 p-3 taglist">
+      <div class="text-center pt-2">
+        <h3 class="text-black border-bottom border-white">
+          <i class="fas fa-tag"></i>参考タグリスト</h3>
+      </div>
+      <%= render 'searches/tag_list',tags: @tags %>
+    </div>
+    <div class="col-lg-6 m-3 p-3 box">
       <div class="text-center pt-2">
         <h3 class="text-black border-bottom border-white">新規投稿</h3>
       </div>
       <%= render 'layouts/errors', obj: @item %>
       <%= render 'form', item: @item %>
-      </div>
     </div>
   </div>
 </div>
