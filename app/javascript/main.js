@@ -1,3 +1,4 @@
+document.addEventListener("turbolinks:load", function(){
 jQuery(function() {
     var pagetop = $('#page_top');
     pagetop.hide();
@@ -15,3 +16,4 @@ jQuery(function() {
         return false;
     });
 });
+})

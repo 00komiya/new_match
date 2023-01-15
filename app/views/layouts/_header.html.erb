@@ -11,13 +11,18 @@
         <ul class="navbar-nav ml-auto">
         <% if admin_signed_in? %>
           <li class="my-auto pr-5 mr-5t text-light">
-            <b>管理者アカウント</b>でログインしています。</li>
+            <b>管理者アカウント</b>でログイン中</li>
           <li class="mx-4"><%= link_to "投稿一覧", admin_items_path, class: "btn btn-outline-info text-light" %></li>
           <li class="mx-4"><%= link_to "会員一覧", admin_root_path, class: "btn btn-outline-info text-light" %></li>
           <li class="mx-4"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-info text-light" %></li>
         <% elsif user_signed_in? %>
           <li class="my-auto pr-5 mr-5 text-light">
-            ようこそ、<%= current_user.name %>さん！</li>
+            ようこそ、<%= current_user.name %>さん
+            <div class="scroll text-center font-weight-bold">
+              <div id="stop">自動スクロールSTOP</div>
+              <div id="start">自動スクロールSTART</div>
+            </div>
+          </li>
           <li>
             <% if unchecked_notifications.any? %>
               <li class="data-toggle="tooltip", data-placement="bottom", title="お知らせ""><%= link_to notifications_path, class: "btn btn-danger m-2" do %>
