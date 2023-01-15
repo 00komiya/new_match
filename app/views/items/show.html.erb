@@ -51,8 +51,10 @@
         <div id="like_buttons_<%= @item.id %>">
           <%= render 'likes/btn', item: @item %></div>
       </div>
+      <div id="comments_counter">
+        <%= render 'item_comments/counter', item: @item %>
+      </div>
       <div id="comments_index">
-        <h5>コメント：<%= @item.item_comments.count %> 件</h5>
         <%= render 'item_comments/index', item_comments: @item_comments %></div>
       <div id="comments_form">
       <%= render 'item_comments/form', item: @item, item_comment: @item_comment %></div>

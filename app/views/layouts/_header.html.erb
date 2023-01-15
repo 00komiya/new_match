@@ -20,11 +20,11 @@
             ようこそ、<%= current_user.name %>さん！</li>
           <li>
             <% if unchecked_notifications.any? %>
-              <li><%= link_to notifications_path, class: "btn btn-danger m-2" do %>
+              <li class="data-toggle="tooltip", data-placement="bottom", title="お知らせ""><%= link_to notifications_path, class: "btn btn-danger m-2" do %>
                 <i class="fas fa-bell"></i><i class="fas fa-exclamation"></i><% end %></li>
             <% else %>
-              <li><%= link_to notifications_path, class: "btn btn-light m-2" do %>
-                <i class="fas fa-bell"data-toggle="tooltip", data-placement="bottom", title="お知らせ"></i><% end %></li>
+              <li class="data-toggle="tooltip", data-placement="bottom", title="お知らせ""><%= link_to notifications_path, class: "btn btn-light m-2" do %>
+                <i class="fas fa-bell"></i><% end %></li>
             <% end %>
           </li>
           <li>

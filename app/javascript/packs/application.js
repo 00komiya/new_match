@@ -14,7 +14,6 @@ import "bootstrap";
 import "../stylesheets/application"
 import "@fortawesome/fontawesome-free/js/all"
 import "main.js"
-import "tooltip.js"
 
 Rails.start()
 Turbolinks.start()
