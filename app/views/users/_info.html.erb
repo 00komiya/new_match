@@ -21,9 +21,7 @@
     <tr>
       <th>❤一覧</th>
         <td colspan="2">
-          <%= link_to likes_user_path(@user) do %>
-            こちらをクリック<i class="fas fa-kiss-wink-heart"></i>
-          <% end %></td>
+          <%= link_to "こちらをクリック", likes_user_path(@user) %></td>
     </tr>
   </table>
   <% if user == current_user %>
