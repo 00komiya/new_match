@@ -94,4 +94,4 @@ items = Item.create(
   Tag.create(name: "ドリンク")
   Tag.create(name: "アルコール")
   Tag.create(name: "コラボ")
-  Tag.create(name: "限定品")
+  Tag.create(name: "地域限定")

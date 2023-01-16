@@ -2,7 +2,7 @@
   <div class="border">
     <%= image_tag item.get_image, size:'50x50' %>
     <%=item.name %>
-    <%= link_to "詳細", item_path(item) %>
+    <%= link_to "詳細", item_path(item),class:"btn btn-primary rounded-pill" %>
   <div class="text-right">
     <div id="item_<%= item.id %>"><%= render "likes/btn", item: item %></div>
   </div>

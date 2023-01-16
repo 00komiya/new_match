@@ -9,7 +9,7 @@
       </td>
       <% if item_comment.user == current_user %>
       <td class="text-right">
-        <%= link_to "削除", item_item_comment_path(item_comment.item, item_comment), method: :delete, remote: true, class: "btn btn-danger pull-right" %>
+        <%= link_to "削除", item_item_comment_path(item_comment.item, item_comment), method: :delete, data: { confirm: '本当に消しますか？' },  remote: true, class: "btn btn-danger rounded-pill" %>
       </td>
       <% end %>
     </tr>

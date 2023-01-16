@@ -38,18 +38,18 @@
             <% end %></li>
           <li>
             <%= link_to items_path, class: 'nav-link btn btn-outline-secondary text-light m-2' do %>
-              <i class="far fa-eye"></i> 新商品チェック
+              <i class="far fa-eye"></i> 投稿一覧
             <% end %></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-link btn btn-outline-secondary text-light m-2 text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               メニュー</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to "ホーム", root_path, class: 'dropdown-item' %></a>
-                <%= link_to "マイページ", user_path(current_user.id), class: 'dropdown-item' %></a>
-                <%= link_to "いいねリスト", likes_user_path(current_user.id), class: 'dropdown-item' %></a>
-                <%= link_to "会員一覧", users_path, class: 'dropdown-item' %></a>
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %></a>
-                <%= link_to "退会はコチラ", users_quit_path, class: 'dropdown-item' %></a>
+                <%= link_to "ホーム", root_path, class: 'dropdown-item' %>
+                <%= link_to "マイページ", user_path(current_user.id), class: 'dropdown-item' %>
+                <%= link_to "いいねリスト", likes_user_path(current_user.id), class: 'dropdown-item' %>
+                <%= link_to "会員一覧", users_path, class: 'dropdown-item' %>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+                <%= link_to "退会はコチラ", users_quit_path, class: 'dropdown-item' %>
               </div>
           </li>
         <% else %>

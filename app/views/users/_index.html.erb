@@ -1,9 +1,9 @@
 <% users.each do |user| %>
   <table class="table">
-    <tr class="border">
+    <tr class="border-top">
       <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
       <td><%= user.name %></td><br>
-      <td><%= link_to '詳細', user %></td>
+      <td><%= link_to "詳細", user,class: "btn btn-primary rounded-pill" %></td>
     </tr>
   </table>
 <% end %>

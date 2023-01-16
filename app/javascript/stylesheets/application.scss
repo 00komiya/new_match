@@ -48,6 +48,11 @@ th {
   height: 150px;
 }
 
+.sidebar_fixed{
+  position: sticky;
+  top: 70px;
+}
+
 .info {
   color: #fffacd;
   -webkit-text-stroke: 1px #FFF;

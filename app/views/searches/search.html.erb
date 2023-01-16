@@ -1,10 +1,8 @@
-<div class="container-fluid">
-  <div class="row p-3">
-    <div class="col-sm-12 col-md-8 col-lg-5 mx-2 mx-sm-auto shadow-lg rounded box">
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-lg-6 offset-lg-3 mt-3 box">
       <% if @model == 'item' || @model == 'tag' %>
-        <div class="text-center pt-2">
-          <h3 class="text-black border-bottom border-white">検索ワード"<%= @content %>"</h3>
-        </div>
+        <h3 class="text-center border-bottom border-white pt-2">検索ワード"<%= @content %>"</h3>
         <% if @records.count == 0 %>
           <h4 class="text-center">検索ワードがヒットしませんでした。</h4>
         <% else %>
@@ -12,9 +10,7 @@
           <%= paginate @records %>
         <% end %>
       <% elsif @model == 'user' %>
-        <div class="text-center pt-2">
-          <h3 class="text-black border-bottom border-white">検索ワード "<%= @content %>"</h3>
-        </div>
+        <h3 class="text-center border-bottom border-white pt-2">検索ワード "<%= @content %>"</h3>
         <% if @records.count == 0 %>
           <h4 class="text-center">検索ワードがヒットしませんでした。</h4>
         <% else %>

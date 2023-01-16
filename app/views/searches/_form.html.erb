@@ -3,6 +3,6 @@
     <%= f.text_field :content, placeholder: "コンビニ名でも検索可",required: true %>
     <%= f.select :model, options_for_select({ "商品名" => "item", "会員名" => "user" }) %>
     <%= f.select :method, options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
-    <%= f.submit '検索' %>
+    <%= f.submit "検索" %>
   <% end %>
 <% end %>
