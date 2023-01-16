@@ -15,6 +15,8 @@ import "../stylesheets/application"
 import "@fortawesome/fontawesome-free/js/all"
 import "main.js"
 import "scroll.js"
+import "slider.js"
+
 
 Rails.start()
 Turbolinks.start()

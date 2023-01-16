@@ -1,5 +1,4 @@
 document.addEventListener("turbolinks:load", function(){
-jQuery(function() {
 var speed = 1; //スクロール量（1 = 1px）
 var interval = 100; //スクロール間隔（1000 = 1秒）
 var scrollTop = $(window).scrollTop(); // 現在のスクロール量を計測
@@ -26,5 +25,4 @@ $('#start').on('click', function(){
 
   },interval);  // setIntervalを変数intervalの間隔で繰り返す。
 });
-})
 })
