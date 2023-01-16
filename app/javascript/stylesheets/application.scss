@@ -18,6 +18,12 @@ a{
   text-decoration: none;
 }
 
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
 .navbar-toggler {
   background-color: #e6e6fa;
   border-color: #000000;
@@ -48,7 +54,7 @@ th {
   height: 150px;
 }
 
-.sidebar_fixed{
+.sidebar_fixed {
   position: sticky;
   top: 70px;
 }
@@ -96,7 +102,6 @@ top {
 }
 #start:hover {background: #8e8;}
 #stop:hover {background: #f99;}
-
 
 #page_top{
   width: 90px;

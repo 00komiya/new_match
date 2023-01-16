@@ -6,23 +6,10 @@
     <p>まずはゲストログインでお試しください<p>
   </div>
   <div class="slider">
-    <%= link_to items_path do %>
-      <img src="<%= asset_path('pan.jpg') %>" alt="" />
-    <% end %>
-    <%= link_to new_item_path do %>
-      <img src="<%= asset_path('pan.jpg') %>" alt="" />
-    <% end %>
-    <%= link_to user_path(current_user.id) do %>
-      <img src="<%= asset_path('pan.jpg') %>" alt="" />
-    <% end %>
-    <%= link_to likes_user_path(current_user.id) do %>
-      <img src="<%= asset_path('pan.jpg') %>" alt="" />
-    <% end %>
-
+    <div><img src="<%= asset_path('pan.jpg') %>" alt="スライド画像01" /></div>
+    <div><img src="<%= asset_path('oden.jpg') %>" alt="スライド画像02" /></div>
+    <div><img src="<%= asset_path('bento.jpg') %>" alt="スライド画像03" /></div>
+    <div><img src="<%= asset_path('nikuman.jpg') %>" alt="スライド画像04" /></div>
+    <div><img src="<%= asset_path('make.jpg') %>" alt="スライド画像05" /></div>
   </div>
 </section>
-
-    <!--<div><a href=""><img src="<%#= asset_path('nikuman.jpg') %>" alt="" /></div>-->
-    <!--<div><a href=""><img src="<%#= asset_path('oden.jpg') %>" alt="" /></div>-->
-    <!--<div><a href=""><img src="<%#= asset_path('bento.jpg') %>" alt="" /></div>-->
-    <!--<div><a href=""><img src="<%#= asset_path('make.jpg') %>" alt="" /></div>-->
