@@ -23,8 +23,10 @@
 ・購入する前に情報を取集したい時
 
 ## 設計書
-.テーブル定義書　https://docs.google.com/spreadsheets/d/1rsQtSIg35mGHX9ErleZ8fL0VQ8Ti3KEk/edit#gid=1398283818
-・ER図 https://app.diagrams.net/#G1sGxoCFPwydNB_dR5ASJVymkTwKsyTw7e
+・テーブル定義書<br>
+https://docs.google.com/spreadsheets/d/1rsQtSIg35mGHX9ErleZ8fL0VQ8Ti3KEk/edit#gid=1398283818<br>
+・ER図<br>
+https://app.diagrams.net/#G1sGxoCFPwydNB_dR5ASJVymkTwKsyTw7e
 
 ## 開発環境
 - OS：Amazon Linux 2
