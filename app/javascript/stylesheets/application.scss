@@ -24,6 +24,7 @@ header {
   z-index: 999;
 }
 
+// ハンバーガーメニューの色
 .navbar-toggler {
   background-color: #e6e6fa;
   border-color: #000000;
@@ -42,7 +43,6 @@ th {
 
 .box {
   background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
-  background-size: cover;
 }
 
 .taglist {
@@ -66,8 +66,7 @@ th {
   font-size: 20px;
   line-height: 50px;
   font-family: "serif";
-background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
-
+  background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
 }
 
 top {
