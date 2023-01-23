@@ -23,6 +23,10 @@
 ・購入する前に情報を取集したい時
 
 ## 設計書
+・テーブル定義書<br>
+https://docs.google.com/spreadsheets/d/1rsQtSIg35mGHX9ErleZ8fL0VQ8Ti3KEk/edit#gid=1398283818<br>
+・ER図<br>
+![ER図_new_match drawio](https://user-images.githubusercontent.com/114364060/212939401-e0103e47-366f-4461-b5dc-eadbf3f75251.png)
 
 
 ## 開発環境
