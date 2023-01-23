@@ -1,4 +1,7 @@
 class ItemCommentsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :ensure_correct_user, only: [:destroy]
+
   def create
     @item = Item.find(params[:item_id])
     @item_comments = @item.item_comments.eager_load(:user).where('users.is_deleted = ?', false)
@@ -20,6 +23,13 @@ class ItemCommentsController < ApplicationController
 
   def item_comment_params
     params.require(:item_comment).permit(:comment)
+  end
+
+  def ensure_correct_user
+    @item_commment = ItemComment.find(params[:id])
+    unless @item_comment.user == current_user
+      redirect_to items_path
+    end
   end
 
 end
