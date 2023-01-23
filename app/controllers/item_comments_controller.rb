@@ -26,7 +26,7 @@ class ItemCommentsController < ApplicationController
   end
 
   def ensure_correct_user
-    @item_commment = ItemComment.find(params[:id])
+    @item_comment = ItemComment.find(params[:id])
     unless @item_comment.user == current_user
       redirect_to items_path
     end
