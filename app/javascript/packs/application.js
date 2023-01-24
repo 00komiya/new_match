@@ -19,5 +19,5 @@ import "slider.js"
 
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()

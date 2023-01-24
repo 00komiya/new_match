@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function(){
+window.addEventListener("load", function(){
 jQuery(function() {
     var pagetop = $('#page_top');
     pagetop.hide();

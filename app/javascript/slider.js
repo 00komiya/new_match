@@ -1,4 +1,4 @@
-document.addEventListener("turbolinks:load", function(){
+window.addEventListener("load", function(){
   $(function(){
     $('.slider').slick({
       autoplay: true, //自動でスクロール
