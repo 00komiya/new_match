@@ -11,9 +11,10 @@ class ItemsController < ApplicationController
     @tags = Tag.all
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    tag_list = params[:item][:tag_name].delete(" ").split(',')
+    tag_list = params[:item][:tag_name].delete(" ""　").split(',')
+    pp tag_list
     if @item.save
-      @item.save_tags(tag_list)
+      @item.save_tags(tag_list.uniq)
       redirect_to items_path, notice: "投稿に成功しました。"
     else
       render :new
@@ -46,9 +47,9 @@ class ItemsController < ApplicationController
   end
 
   def update
-    tag_list = params[:item][:tag_name].delete(" ").split(',')
+    tag_list = params[:item][:tag_name].delete(" ""　").split(',')
     if@item.update(item_params)
-      @item.save_tags(tag_list)
+      @item.save_tags(tag_list.uniq)
       redirect_to item_path(@item), notice: "編集が保存されました。"
     else
       render :edit
