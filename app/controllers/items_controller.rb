@@ -34,6 +34,9 @@ class ItemsController < ApplicationController
       @items = @items.latest.page(params[:page])
     elsif params[:old]
       @items = @items.old.page(params[:page])
+    elsif params[:favorite]
+      # @items = @items..page(params[:page])
+      @items = Item.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
     else
       @items = @items.order(created_at: "DESC").page(params[:page])
     end
