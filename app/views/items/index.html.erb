@@ -12,7 +12,7 @@
       <% if @items.present? %>
         <%= link_to '新しい順', items_path(latest: "true") %> |
         <%= link_to '古い順', items_path(old: "true") %> |
-        <%= link_to 'いいね順', items_path(favorite: "true") %>
+        <%= link_to 'いいね順', items_path(like: "true") %>
       <% end %>
       <%= render 'index', items: @items %>
       <%= paginate @items %>

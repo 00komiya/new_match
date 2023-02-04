@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
   has_many :item_comments, dependent: :destroy
   has_many :item_tags, dependent: :destroy
   has_many :tags, through: :item_tags

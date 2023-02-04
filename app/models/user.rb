@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :items, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_likes, through: :likes, source: :item
   has_many :item_comments, dependent: :destroy
   has_one_attached :profile_image
 
